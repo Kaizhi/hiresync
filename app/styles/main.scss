@@ -1,0 +1,60 @@
+body {
+    margin: 0 auto;
+    line-height: 1.7em;
+}
+
+.l-box {
+    padding: 1em;
+}
+
+.header {
+    margin: 0 0;
+}
+
+    .header .pure-menu {
+        padding: 0.5em;
+    }
+
+        .header .pure-menu li a:hover,
+        .header .pure-menu li a:focus {
+            background: none;
+            border: none;
+            color: #aaa;
+        }
+
+body .primary-button {
+    background: #02a6eb;
+    color: #fff;
+}
+
+.splash {
+    margin: 2em auto 0;
+    padding: 3em 0.5em;
+    background: url("../images/hero_bg.jpg") no-repeat 0px;
+    background-size: 100%;
+
+}
+    .splash-head {
+        font-size: 300%;
+        margin: 0em 0;
+        line-height: 1.2em;
+        color: white;
+    }
+    .splash-subhead {
+        color: #999;
+        font-weight: 300;
+        line-height: 1.4em;
+    }
+    .primary-button {
+        font-size: 150%;
+    }
+
+.pure-menu-heading{
+    zoom: 1.5;
+}
+
+.pure-menu ul{
+    float:right;
+    margin-right:5%;
+    line-height: 2.4em;
+}
