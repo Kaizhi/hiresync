@@ -5,6 +5,10 @@ body {
     line-height: 1.7em;
 }
 
+p {
+    color: #777;
+}
+
 .l-box {
     padding: 1em;
 }
@@ -29,18 +33,34 @@ body .primary-button {
     color: #fff;
 }
 
+.content {
+    width: 70%;
+    margin: 0 auto;
+}
+
 .splash {
     margin: 2em auto 0;
     padding: 3em 0.5em;
-    background: url("../images/hero_bg.jpg") no-repeat 0px;
-    background-size: 100%;
+    background-image: url("../images/pattern.png"), url("../images/hero_bg.jpg");
+    background-color: transparent;
+    background-position: center -20em;
+    background-attachment: fixed;
+    background-size: auto, cover;
 
+    p {
+        text-align:center;
+    }
 }
+
+
     .splash-head {
         font-size: 300%;
-        margin: 0em 0;
+        margin: 2em 0;
         line-height: 1.2em;
         color: white;
+        text-align:center;
+        text-transform:capitalize;
+        text-shadow: black 0.1em 0.1em 0.2em;
     }
     .splash-subhead {
         color: #999;
