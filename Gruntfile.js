@@ -370,6 +370,10 @@ module.exports = function (grunt) {
         'mocha'
     ]);
 
+    grunt.registerTask('css', [
+        'concurrent:server'
+    ]);
+
     grunt.registerTask('build', [
         'clean:dist',
         'useminPrepare',
