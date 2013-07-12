@@ -5,6 +5,8 @@
     "requirejs": "~2.1.4",
     "modernizr": "~2.6.2",
     "jquery": "~1.9.1",
+    "pure": "~0.2.0",
+    "socket.io-client": "~0.9.16"
   },
   "devDependencies": {}
 }

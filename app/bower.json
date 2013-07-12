@@ -1,7 +1,0 @@
-{
-  "name": "app",
-  "version": "0.0.0",
-  "dependencies": {
-    "pure": "~0.2.0"
-  }
-}
