@@ -1,11 +1,10 @@
 require.config({
     paths: {
         jquery: '../bower_components/jquery/jquery',
-        codemirror: '../bower_components/CodeMirror/lib/codemirror'
     }
 });
 
-require(['app', 'jquery', 'codemirror'], function (app, $, CodeMirror) {
+require(['app', 'jquery'], function (app, $) {
     'use strict';
     // use app here
     console.log(app);

@@ -1,13 +1,12 @@
-
 /**
  * Module dependencies.
  */
-
-var express = require('express')
-  , routes = require('./routes')
-  , user = require('./routes/user')
-  , http = require('http')
-  , path = require('path');
+var express = require('express'),
+    routes = require('./routes'),
+    user = require('./routes/user'),
+    http = require('http'),
+    path = require('path'),
+    io = require('socket.io');
 
 var app = express();
 
@@ -27,9 +26,20 @@ if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
-//app.get('/', routes.index);
-app.get('/users', user.list);
+app.get('/demo', function(req, res){
+	res.sendfile('app/demo.html');
+});
 
-http.createServer(app).listen(app.get('port'), function(){
+var server = http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
+});
+
+// Set up socket.io
+var io = require('socket.io').listen(server);
+// Handle socket traffic
+io.sockets.on('connection', function (socket) {
+    // Relay chat data to all clients
+	socket.on('editorUpdate', function(data) {
+		socket.broadcast.emit('editorUpdate', data);
+	});
 });

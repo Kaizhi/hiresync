@@ -77,6 +77,11 @@ body .primary-button {
 
 .pure-menu ul{
     float:right;
-    margin-right:5%;
+    margin-right:16%;
     line-height: 2.4em;
+}
+
+.pure-menu.pure-menu-horizontal > .pure-menu-heading{
+    margin-left:14%;
+    float:left;
 }
