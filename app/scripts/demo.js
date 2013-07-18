@@ -19,11 +19,24 @@ require(['app', 'jquery', 'codemirror', 'io', 'codemirror-js'], function (app, $
     console.log(app);
     console.log('Running jQuery %s', $().jquery);
 
-	window.editor = CodeMirror(document.body, {
+	window.editor = CodeMirror.fromTextArea($("#code")[0], {
 	  value: "function myScript(){return 100;}\n",
 	  mode:  "javascript",
 	  theme: "monokai"
 	});
+
+    window.playback = CodeMirror.fromTextArea($("#replay")[0], {
+      mode:  "javascript",
+      theme: "monokai"
+    });
+
+    var Recording = function(){
+        this.startTime = performance.now();
+        this.events = [];
+        return this;
+    };
+    var startRecording = false, //record on/off flag
+        recording = null; 
 
 	var socket = io.connect();
     socket.on('editorUpdate', function (data) {
@@ -32,10 +45,42 @@ require(['app', 'jquery', 'codemirror', 'io', 'codemirror-js'], function (app, $
         editor.setByAPI = false;
     });
 
+    $("#record").on('click', function(){
+        recording = new Recording();
+        startRecording = true;
+    });
+
+    var startPlayback = function(){
+        for(var i=0; i< recording.events.length; i++){
+            var timer = recording.events[i].time - recording.startTime;
+            var data = recording.events[i].contents;
+            playbackEvent(i, data, timer);
+        }
+
+        function playbackEvent(i, data, timer){
+            setTimeout(function(){
+                playback.setValue(data);
+            }, timer);
+        }
+    }
+
+    $("#play").on('click', function(){
+        console.log(recording);
+        startRecording = false;
+        startPlayback();
+    });
+
 	editor.on('change', function() {
 	    if (!editor.setByAPI) {
+            if (startRecording){
+                var evt = {};
+                evt.contents = editor.getValue();
+                evt.time = Math.round(performance.now());
+                recording.events.push(evt);
+            }
+            console.log(Math.round(performance.now()));
 	        socket.emit('editorUpdate', {
-	            contents:editor.getValue()
+	            contents: editor.getValue()
 	        });
 	    }
 	});
