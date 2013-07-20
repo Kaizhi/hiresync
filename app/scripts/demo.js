@@ -50,16 +50,22 @@ require(['app', 'jquery', 'codemirror', 'io', 'codemirror-js'], function (app, $
         startRecording = true;
     });
 
-    var startPlayback = function(){
-        for(var i=0; i< recording.events.length; i++){
+    var startPlayback = function(i){
+        if (i > recording.events.length - 1){
+            return;
+        }
+        if (i === 0){
             var timer = recording.events[i].time - recording.startTime;
-            var data = recording.events[i].contents;
-            playbackEvent(i, data, timer);
+        } else {
+            var timer = recording.events[i].time - recording.events[i-1].time;
         }
 
-        function playbackEvent(i, data, timer){
+        var data = recording.events[i].contents;
+        playbackEvent(data, timer);
+        function playbackEvent(data, timer){
             setTimeout(function(){
                 playback.setValue(data);
+                startPlayback(i+1);
             }, timer);
         }
     }
@@ -67,7 +73,7 @@ require(['app', 'jquery', 'codemirror', 'io', 'codemirror-js'], function (app, $
     $("#play").on('click', function(){
         console.log(recording);
         startRecording = false;
-        startPlayback();
+        startPlayback(0);
     });
 
 	editor.on('change', function() {
