@@ -1,16 +1,11 @@
 extends layout
 
 block content
-  h2 Log In
-  
-  form(action="/login",method="post")
-    div
-      label Username
-      input(type="text",name="username")
-    
-    div
-      label Password
-      input(type="password",name="password")
-    
-    div
-      input(type="submit",value="Log In")
+    .login
+        h2 Welcome Back
+        form.pure-form(action="/login",method="post")
+            fieldset.pure-group
+                input.pure-input-1(type='email', placeholder='Email', name="email")
+                input.pure-input-1(type='text', placeholder='Password', name="password")
+
+            button.pure-button.pure-input-1.pure-button.primary-button(type='submit') Log in

@@ -7,6 +7,18 @@ body {
     margin: 0 auto;
     line-height: 1.7em;
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    height:100%;
+    background-image: url("../images/pattern.png"), url("../images/bg.jpg");
+    background-color: transparent;
+    background-color: $blue;
+    background-attachment: fixed;
+    background-size: auto, cover;
+
+}
+
+body.landing{
+    background-color:white;
+    background:none;
 }
 
 p {
@@ -49,8 +61,29 @@ footer {
     margin: 0 auto;
 }
 
+.container {
+    margin: 3.7em auto 0;
+    height:100%;
+    
+    .login {
+        position: relative;
+        top: 30%;
+        width: 20%;
+        margin: 0 auto;
+        border-bottom: 1px solid #B7B7B7;
+        padding: 2em 3em;
+        background-color: #FFF;
+        border-radius: 3px;
+    } 
+        h2{
+            color: #565D64;
+            text-align:center;
+            font-weight:lighter;
+            margin-top:0;
+        }
+}
+
 .splash {
-    margin: 2em auto 0;
     padding: 3em 0.5em;
     background-image: url("../images/pattern.png"), url("../images/bg.jpg");
     background-color: transparent;

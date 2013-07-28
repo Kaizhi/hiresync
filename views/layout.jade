@@ -7,21 +7,21 @@ head
     meta(name='viewport', content='width=device-width')
     link(rel='stylesheet', href='css/main.css')
     link(href='//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css', rel='stylesheet')
-  body
-    .content.pure-g-r
-      .header.pure-u-1
-        .pure-menu.pure-menu-open.pure-menu-fixed.pure-menu-horizontal
-          a.pure-menu-heading(href='') devscreen
-          ul
-            li.pure-menu-selected
-              a(href='#') Home
-            li
-              a(href='#') Tour
-            li
-              a(href='/login') Login
-            li
-              a(href='/signup') Sign Up
+    body(class=landing)
+        header.content.pure-g-r
+            .header.pure-u-1
+                .pure-menu.pure-menu-open.pure-menu-fixed.pure-menu-horizontal
+                    a.pure-menu-heading(href='/') devscreen
+                    ul
+                        li.pure-menu-selected
+                            a(href='#') Home
+                        li
+                            a(href='#') Tour
+                        li
+                            a(href='/login') Login
+                        li
+                            a(href='/signup') Sign Up
 
     
-    .container
-      block content
+        .container
+          block content
