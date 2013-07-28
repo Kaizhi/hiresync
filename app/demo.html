@@ -16,6 +16,8 @@
         <!-- build:css({.tmp,app}) styles/codemirror.css -->
         <link rel="stylesheet" href="bower_components/CodeMirror/lib/codemirror.css">
         <link rel="stylesheet" href="bower_components/CodeMirror/theme/monokai.css">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+
 
         <!-- endbuild -->
     </head>
@@ -24,9 +26,7 @@
         <textarea id="code"></textarea>
         <a id="play" href="#" class="pure-button primary-button">Play</a>
         <textarea id="replay"></textarea>
-
-
-        
+        <input id="progress" type='range' step='1' min='1' max='-1' />
         <!-- build:js scripts/demo.js -->
         <script data-main="scripts/demo" src="bower_components/requirejs/require.js"></script>
         <!-- endbuild -->

@@ -84,7 +84,7 @@ require(['app', 'jquery', 'codemirror', 'io', 'codemirror-js'], function (app, $
                 evt.time = Math.round(performance.now());
                 recording.events.push(evt);
             }
-            console.log(Math.round(performance.now()));
+            
 	        socket.emit('editorUpdate', {
 	            contents: editor.getValue()
 	        });

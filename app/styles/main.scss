@@ -1,8 +1,12 @@
 @import "pure-min";
 
+$blue: #4facc1;
+$orange: #DB522F;
+
 body {
     margin: 0 auto;
     line-height: 1.7em;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
 p {
@@ -29,8 +33,15 @@ p {
         }
 
 body .primary-button {
-    background: #02a6eb;
+    background-color: $orange;
     color: #fff;
+    border-bottom: 5px solid darken($orange, 5%);
+}
+
+footer {
+    height:3.7em;
+    background-color: darken(white, 15%);
+    padding:0 15%;
 }
 
 .content {
@@ -41,11 +52,12 @@ body .primary-button {
 .splash {
     margin: 2em auto 0;
     padding: 3em 0.5em;
-    background-image: url("../images/pattern.png"), url("../images/hero_bg.jpg");
+    background-image: url("../images/pattern.png"), url("../images/bg.jpg");
     background-color: transparent;
-    background-position: center -20em;
+    background-color: $blue;
     background-attachment: fixed;
     background-size: auto, cover;
+    min-height:700px;
 
     p {
         text-align:center;
@@ -55,12 +67,13 @@ body .primary-button {
 
     .splash-head {
         font-size: 300%;
+        font-weight: 100;
         margin: 2em 0;
         line-height: 1.2em;
         color: white;
         text-align:center;
         text-transform:capitalize;
-        text-shadow: black 0.1em 0.1em 0.2em;
+        //text-shadow: black 0.1em 0.1em 0.2em;
     }
     .splash-subhead {
         color: #999;
