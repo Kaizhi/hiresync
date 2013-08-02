@@ -1,34 +1,40 @@
 extends layout
 
 block content
-    .splash.pure-u-1
-        .l-box.splash-text
-            h1.splash-head
-                | The easiest way to perform technical interviews
-            h2.splash-subhead
-            p
-                a.pure-button.primary-button(href='/demo') Get Started
-    .content
-      .pure-g-r
-        .pure-u-1-2
-          .l-box
-            h3
-              i.icon-group
-              | Collaborative
-            p
-              | Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-        .pure-u-1-2
-          .l-box
-            h3 Complete
-            p
-              | Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting
-        .pure-u-1-2
-          .l-box
-            h3 Industrial Strength
-            p
-              | Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting
-        .pure-u-1-2
-          .l-box
-            h3 Free and Open
-            p
-              | Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting
+    .container
+        .splash.pure-u-1
+            .l-box.splash-text
+                h1.splash-head
+                    | The best way to perform technical interviews
+                h2.splash-subhead
+                    | Stop wasting time interviewing the wrong candidates. Devscreen helps you find the right person for your company.
+                p
+                    a.pure-button.primary-button(href='/demo') Get Started
+        .content.section
+            h1 What makes Devscreen so awesome?
+
+            .pure-g-r
+                .pure-u-1-4
+                    .l-box
+                        h3.callout-title
+                            | Designed for Teams
+                        p
+                            | Interviews are automatically recorded and saved to your account, letting you watch and review the candidate's performance witih the rest of your team.
+                .pure-u-1-4
+                    .l-box.callout-title
+                        h3 Realtime Collaboration
+                        p
+                            | Interact with your candidate's code in real time. Real time editing powered by Operational Transforms means nothing ever gets lost. 
+                .pure-u-1-4
+                    .l-box.callout-title
+                        h3 Question Bank
+                        p
+                            | Save commonly used coding challenges to your account, and reuse them easily with any candidate.
+                .pure-u-1-4
+                    .l-box.callout-title
+                        h3 Multi Language Support
+                        p
+                            | Devscreen supports syntax highlighting and in-browser compiling for Javascript, Ruby, Python Java, and even more coming soon!
+
+    footer.footer
+

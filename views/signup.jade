@@ -1,12 +1,13 @@
 extends layout
 
 block content
-    .login
-        h2 Welcome to Devscreen
-        form.pure-form(action="/signup",method="post")
-            fieldset.pure-group
-                input.pure-input-1(type='text', placeholder='Name', name="username")
-                input.pure-input-1(type='email', placeholder='Email', name="email")
-                input.pure-input-1(type='password', placeholder='Password', name="password")
+    .container
+        .login
+            h2 Welcome to Devscreen
+            form.pure-form(action="/signup",method="post")
+                fieldset.pure-group
+                    input.pure-input-1(type='text', placeholder='Name', name="username")
+                    input.pure-input-1(type='email', placeholder='Email', name="email")
+                    input.pure-input-1(type='password', placeholder='Password', name="password")
 
-            button.pure-button.pure-input-1.pure-button.primary-button(type='submit') Sign Up
+                button.pure-button.pure-input-1.pure-button.primary-button(type='submit') Sign Up

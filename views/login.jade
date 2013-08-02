@@ -1,11 +1,12 @@
 extends layout
 
 block content
-    .login
-        h2 Welcome Back
-        form.pure-form(action="/login",method="post")
-            fieldset.pure-group
-                input.pure-input-1(type='email', placeholder='Email', name="email")
-                input.pure-input-1(type='text', placeholder='Password', name="password")
+    .container
+        .login
+            h2 Welcome Back
+            form.pure-form(action="/login",method="post")
+                fieldset.pure-group
+                    input.pure-input-1(type='email', placeholder='Email', name="email")
+                    input.pure-input-1(type='password', placeholder='Password', name="password")
 
-            button.pure-button.pure-input-1.pure-button.primary-button(type='submit') Log in
+                button.pure-button.pure-input-1.pure-button.primary-button(type='submit') Log in
