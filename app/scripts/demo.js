@@ -1,37 +1,52 @@
 require.config({
     paths: {
         'jquery': '../bower_components/jquery/jquery',
-        'codemirror': '../bower_components/CodeMirror/lib/codemirror',
-        'codemirror-js': "../bower_components/CodeMirror/mode/javascript/javascript",
-        'io': "../bower_components/socket.io-client/dist/socket.io"
+        'codemirror-js': '../bower_components/CodeMirror/mode/javascript/javascript',
+        'io': '../bower_components/socket.io-client/dist/socket.io',
+        'firepad': '../scripts/firepad'
     },
     shim: {
-    	'codemirror': {
-    		exports: 'CodeMirror'
-    	},
-    	'codemirror-js': ['codemirror'],
+        'firepad' : {
+            exports: 'Firepad'
+        },
     }
 });
 
-require(['app', 'jquery', 'codemirror', 'io', 'codemirror-js'], function (app, $, CodeMirror, io) {
+require(['app', 'jquery', 'io', 'firepad'], function (app, $, io, Firepad) {
     'use strict';
-    // use app here
-    console.log(app);
-    console.log('Running jQuery %s', $().jquery);
 
-	window.editor = CodeMirror.fromTextArea($("#code")[0], {
-	  value: "function myScript(){return 100;}\n",
-	  mode:  "javascript",
-	  theme: "monokai"
+    String.prototype.hashCode = function(){
+        var hash = 0, i, char;
+        if (this.length == 0) return hash;
+        for (i = 0, l = this.length; i < l; i++) {
+            char  = this.charCodeAt(i);
+            hash  = ((hash<<5)-hash)+char;
+            hash |= 0; // Convert to 32bit integer
+        }
+        return hash;
+    };
+    
+    var firepadRef = new Firebase('devscreen.firebaseIO.com/');
+	window.editor = CodeMirror.fromTextArea($('#code')[0], {
+	    mode:  'javascript',
+        lineNumbers:true,
+	    theme: 'monokai'
 	});
+    var firepad = Firepad.fromCodeMirror(firepadRef, window.editor);
+    //// Initialize contents.
+    firepad.on('ready', function() {
+        if (firepad.isHistoryEmpty()) {
+            firepad.setText('// JavaScript Editing with Firepad!');
+        }
+    });
 
-    window.playback = CodeMirror.fromTextArea($("#replay")[0], {
-      mode:  "javascript",
-      theme: "monokai"
+    /*window.playback = CodeMirror.fromTextArea($("#replay")[0], {
+        mode:  "javascript",
+        theme: "monokai"
     });
 
     var Recording = function(){
-        this.startTime = performance.now();
+        this.startTime = window.performance.now();
         this.events = [];
         return this;
     };
@@ -89,5 +104,5 @@ require(['app', 'jquery', 'codemirror', 'io', 'codemirror-js'], function (app, $
 	            contents: editor.getValue()
 	        });
 	    }
-	});
+	});*/
 });

@@ -34,6 +34,7 @@ p {
 
     .header .pure-menu {
         padding: 0.5em;
+        background-color:rgba(255,255,255,0.9);
     }
 
         .header .pure-menu li a:hover,
@@ -49,6 +50,12 @@ body .primary-button {
     border-bottom: 5px solid darken($orange, 5%);
 }
 
+body .secondary-button{
+    background-color: $lightblue;
+    color:#fff;
+    border-bottom:5px solid darken($lightblue, 5%);
+}
+
 footer {
     height:5em;
     background-color: $footerBlack;
@@ -56,11 +63,12 @@ footer {
 }
 
 .content {
-    width: 70%;
+    padding: 0 15%;
     margin: 0 auto;
 }
 
 .section {
+    padding-bottom:2em;
     h1{
         font-size:2em;
         font-weight: lighter;
@@ -68,6 +76,20 @@ footer {
         margin-top:1.5em;
         text-align:center;
         line-height:2.5em;
+        border-bottom:1px solid grey;
+        padding-bottom:1.5em;
+    }
+    border-bottom:1px solid white;
+}
+
+.section.pricing {
+    padding-top:3em;
+    padding-bottom:3em;
+
+    .callout-box{
+        height:480px;
+        background-color:$grey;
+        margin:2em;
     }
 }
 
@@ -154,4 +176,41 @@ footer {
 
 .pure-form .pure-group input{
     border-radius:2px 2px 0 0;
+}
+
+
+.app {
+    .firepad .CodeMirror{
+        position:absolute;
+        top: 0;
+        height:100%;
+        width:100%;
+        left:0;
+    }
+
+    .cards {
+        width:20em;
+        position:absolute;
+        right:2%;
+        top:2%;
+        height:auto;
+        z-index:100;
+    }
+
+    .card {
+        height: auto;
+        background-color: #FFF;
+        border-bottom: 1px solid #B7B7B7;
+        padding: 1em;
+        background-color: $grey;
+        border-radius: 3px;
+        margin-bottom:.4em;
+        .pure-button{
+            width: 47%;
+            &:nth-child(odd){
+                margin-right:.8em;
+            }
+    
+        }
+    }
 }
