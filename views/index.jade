@@ -5,11 +5,15 @@ block content
         .splash.pure-u-1
             .l-box.splash-text
                 h1.splash-head
-                    | The best way to perform technical interviews
+                    | Hire with Confidence 
+                    if (user)
+                        | #{user.username}
                 h2.splash-subhead
-                    | Stop wasting time interviewing the wrong candidates. Devscreen helps you find the right person for your company.
+                    | Stop wasting time interviewing the wrong candidates. 
+                    br
+                    | Devscreen helps you find the right person for the job.
                 p
-                    a.pure-button.primary-button(href='/demo') Get Started
+                    a.pure-button.primary-button(href='/signup') Get Started
         .content.section
             h1 What makes Devscreen so awesome?
 
@@ -24,7 +28,7 @@ block content
                     .l-box.callout-title
                         h3 Realtime Collaboration
                         p
-                            | Interact with your candidate's code in real time. Real time editing powered by Operational Transforms means nothing ever gets lost. 
+                            | Interact with your candidate's code in real time. Collaborative editing powered by Operational Transforms means seamless collaboration in any network condition.
                 .pure-u-1-4
                     .l-box.callout-title
                         h3 Question Bank
@@ -35,6 +39,21 @@ block content
                         h3 Multi Language Support
                         p
                             | Devscreen supports syntax highlighting and in-browser compiling for Javascript, Ruby, Python Java, and even more coming soon!
+
+        .content.section.pricing.pure-g-r
+                .pure-u-1-3
+                    .callout-box
+
+                .pure-u-1-3
+                    .callout-box
+
+
+                .pure-u-1-3
+                    .callout-box
+
+
+
+
 
     footer.footer
 

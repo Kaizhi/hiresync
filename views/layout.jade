@@ -2,7 +2,7 @@ doctype 5
 head
     meta(charset='utf-8')
     meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
-    title Devscreen
+    title Devscreen #{locals.user}
     meta(name='description', content='')
     meta(name='viewport', content='width=device-width')
     link(rel='stylesheet', href='css/main.css')
@@ -11,14 +11,18 @@ head
         header.content.pure-g-r
             .header.pure-u-1
                 .pure-menu.pure-menu-open.pure-menu-fixed.pure-menu-horizontal
-                    a.pure-menu-heading(href='/') Devscreen
+                    a.pure-menu-heading(href='/') Devscreen 
                     ul
                         li
-                            a(href='#') Features
-                        li
-                            a(href='/login') Login
-                        li
-                            a(href='/signup') Sign Up
+                            a(href='/demo.html') Demo
+                        if (user)
+                            li
+                                a(href='/logout') Logout
+                        else
+                            li
+                                a(href='/login') Login
+                            li
+                                a(href='/signup') Sign Up
 
     
         block content
