@@ -37,7 +37,7 @@ module.exports = function (app) {
                 if (err) { //exception occurred
                     return next(err); 
                 }
-                return res.redirect('/users/' + user.username);
+                return res.render('app', {user: user});
             });
         })(req, res, next);
     });
@@ -45,5 +45,9 @@ module.exports = function (app) {
     app.get('/logout', function(req, res) {
         req.logout();
         res.redirect('/');
+    });
+
+    app.get('/app', function(req, res){
+        res.render('app', {user: req.user});
     });
 };

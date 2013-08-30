@@ -1,10 +1,11 @@
 /**
  * Module dependencies.
  */
+'use strict';
 var express = require('express'),
     http = require('http'),
     path = require('path'),
-    io = require('socket.io')
+    io = require('socket.io'),
     mongoose = require('mongoose'),
     passport = require('passport'),
     LocalStrategy = require('passport-local').Strategy;
@@ -32,13 +33,9 @@ app.configure(function(){
 });
 
 // development only
-if ('development' == app.get('env')) {
-  app.use(express.errorHandler());
+if ('development' === app.get('env')) {
+    app.use(express.errorHandler());
 }
-
-app.get('/demo', function(req, res){
-	res.sendfile('app/demo.html');
-});
 
 // Configure passport
 var Account = require('./models/account');
@@ -55,15 +52,22 @@ mongoose.connect('mongodb://localhost/passport_local_mongoose_examples');
 require('./routes')(app);
 
 var server = http.createServer(app).listen(app.get('port'), function(){
-  console.log('Express server listening on port ' + app.get('port'));
+    console.log('Express server listening on port ' + app.get('port'));
 });
 
 // Set up socket.io
 var io = require('socket.io').listen(server);
 // Handle socket traffic
+var clients = [],
+    numClients = 0;
 io.sockets.on('connection', function (socket) {
-    // Relay chat data to all clients
-	socket.on('editorUpdate', function(data) {
-		socket.broadcast.emit('editorUpdate', data);
-	});
+    numClients++;
+    clients.push({'Guest' : socket.id});
+
+    socket.on('disconnect', function () {
+        numClients--;
+        clients.splice(clients.indexOf(client), 1);
+    });
+    io.sockets.emit('users:update', clients);
 });
+

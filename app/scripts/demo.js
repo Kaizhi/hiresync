@@ -1,6 +1,7 @@
 require.config({
     paths: {
         'jquery': '../bower_components/jquery/jquery',
+        'jquery.cookie': '../bower_components/jquery.cookie/jquery.cookie',
         'codemirror-js': '../bower_components/CodeMirror/mode/javascript/javascript',
         'io': '../bower_components/socket.io-client/dist/socket.io',
         'firepad': '../scripts/firepad'
@@ -9,10 +10,11 @@ require.config({
         'firepad' : {
             exports: 'Firepad'
         },
+        'jquery.cookie' : ['jquery']
     }
 });
 
-require(['app', 'jquery', 'io', 'firepad'], function (app, $, io, Firepad) {
+require(['jquery', 'io', 'firepad', 'jquery.cookie'], function ($, io, Firepad) {
     'use strict';
 
     String.prototype.hashCode = function(){
@@ -40,6 +42,10 @@ require(['app', 'jquery', 'io', 'firepad'], function (app, $, io, Firepad) {
         }
     });
 
+    var socket = io.connect('http://localhost');
+    socket.on('users:update', function (data) {
+      console.log(data);
+    });
     /*window.playback = CodeMirror.fromTextArea($("#replay")[0], {
         mode:  "javascript",
         theme: "monokai"
