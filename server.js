@@ -62,11 +62,15 @@ var clients = [],
     numClients = 0;
 io.sockets.on('connection', function (socket) {
     numClients++;
-    clients.push({'Guest' : socket.id});
+    clients.push({
+        'name' : 'Guest' + numClients,
+        'id' : socket.id
+    });
 
     socket.on('disconnect', function () {
         numClients--;
-        clients.splice(clients.indexOf(client), 1);
+        clients.splice(clients.indexOf(socket), 1);
+        io.sockets.emit('users:update', clients);
     });
     io.sockets.emit('users:update', clients);
 });

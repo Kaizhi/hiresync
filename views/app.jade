@@ -21,21 +21,14 @@ body.app
 			button.pure-button.primary-button New
 			button.pure-button.secondary-button Record
 		.card
-			ul.users
-				li
-					| Kevin
-					icon.icon-remove
-				li
-					| Guest2
-					icon.icon-remove
-				li
-					| Guest3
-					icon.icon-remove
-				li
-					| Guest
-					icon.icon-remove
-		.card
+			ul.users#users
 	textarea#code
+
+	script(type='text/template', id='user-list-item-tpl')
+		li
+			| {{name}}
+			icon.icon-remove
+
 	//build:js scripts/demo.js 
 	if (user)
 		script

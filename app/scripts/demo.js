@@ -4,22 +4,34 @@ require.config({
         'jquery.cookie': '../bower_components/jquery.cookie/jquery.cookie',
         'codemirror-js': '../bower_components/CodeMirror/mode/javascript/javascript',
         'io': '../bower_components/socket.io-client/dist/socket.io',
-        'firepad': '../scripts/firepad'
+        'firepad': '../scripts/firepad',
+        'backbone': '../bower_components/backbone/backbone-min',
+        'underscore': '../bower_components/underscore/underscore-min'
     },
     shim: {
         'firepad' : {
             exports: 'Firepad'
         },
-        'jquery.cookie' : ['jquery']
+        'jquery.cookie' : ['jquery'],
+        underscore: {
+            exports: '_'
+        },
+        backbone: {
+            deps: ["underscore", "jquery"],
+            exports: "Backbone"
+        }
+        
     }
 });
 
-require(['jquery', 'io', 'firepad', 'jquery.cookie'], function ($, io, Firepad) {
+require(['jquery', 'backbone', 'underscore', 'io', 'firepad', 'jquery.cookie'], function ($, Backbone, _, io, Firepad) {
     'use strict';
 
+    _.templateSettings = { 'interpolate' : /{{([\s\S]+?)}}/g };
+
     String.prototype.hashCode = function(){
-        var hash = 0, i, char;
-        if (this.length == 0) return hash;
+        var hash = 0, i, l, char;
+        if (this.length === 0) return hash;
         for (i = 0, l = this.length; i < l; i++) {
             char  = this.charCodeAt(i);
             hash  = ((hash<<5)-hash)+char;
@@ -43,9 +55,33 @@ require(['jquery', 'io', 'firepad', 'jquery.cookie'], function ($, io, Firepad) 
     });
 
     var socket = io.connect('http://localhost');
-    socket.on('users:update', function (data) {
-      console.log(data);
-    });
+
+    var userListView = Backbone.View.extend({
+        el: $('#users'),
+        template: _.template($("#user-list-item-tpl").html()),
+        events: {
+        },
+
+        initialize: function(){
+            this.listenTo(socket, 'users:update', _.bind(this.render, this));            
+        },
+
+        render: function(users){
+            var that = this,
+                $fragment = $(document.createDocumentFragment());
+
+            console.log(users);
+            _.each(users, function(user, index){
+                $fragment.append(that.template({
+                    name: user.name
+                }));
+            });  
+            this.$el.html($fragment);
+        }
+    })
+    var UserListView = new userListView();
+
+    
     /*window.playback = CodeMirror.fromTextArea($("#replay")[0], {
         mode:  "javascript",
         theme: "monokai"
