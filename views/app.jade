@@ -7,18 +7,19 @@ head
 	meta(name='viewport', content='width=device-width')
 	//Place favicon.ico and apple-touch-icon.png in the root directory 
 	//build:css({.tmp,app}) styles/main.css 
-	link(rel='stylesheet', href='css/main.css')
+	link(rel='stylesheet', href='../css/main.css')
 	//endbuild 
 	//build:css({.tmp,app}) styles/codemirror.css 
 	link(href='//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css', rel='stylesheet')
-	link(rel='stylesheet', href='bower_components/CodeMirror/lib/codemirror.css')
-	link(rel='stylesheet', href='bower_components/CodeMirror/theme/monokai.css')
+	link(rel='stylesheet', href='../bower_components/CodeMirror/lib/codemirror.css')
+	link(rel='stylesheet', href='../bower_components/CodeMirror/theme/monokai.css')
 	link(href='//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css', rel='stylesheet')
 	//endbuild 
 body.app
 	.cards
 		.card
-			button.pure-button.primary-button New
+			button.pure-button.primary-button 
+				a(href='/app') New
 			button.pure-button.secondary-button Record
 		.card
 			ul.users#users
@@ -36,5 +37,5 @@ body.app
 	script(src='https://cdn.firebase.com/v0/firebase.js')
 	script(type='text/javascript', src='../bower_components/CodeMirror/lib/codemirror.js')
 	script(type='text/javascript', src='../bower_components/CodeMirror/mode/javascript/javascript.js')
-	script(data-main='scripts/demo', src='bower_components/requirejs/require.js')
+	script(data-main='../scripts/demo', src='../bower_components/requirejs/require.js')
 	//endbuild 

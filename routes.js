@@ -1,5 +1,6 @@
 var passport = require('passport'),
-    Account = require('./models/account');
+    Account = require('./models/account'),
+    helpers = require('./helpers');
 
 module.exports = function (app) {
     
@@ -48,6 +49,20 @@ module.exports = function (app) {
     });
 
     app.get('/app', function(req, res){
-        res.render('app', {user: req.user});
+        res.redirect('app/' + helpers.generateHashId());
+    });
+
+    app.get('/app/:hash', function(req, res){
+        res.render('app', {
+            user: req.user,
+            sessionhash: req.params.hash
+        });
+    });
+
+    app.get('/api/user', function(req, res){
+        if (req.user){
+            return res.send(req.user);
+        } 
+        res.send(401);
     });
 };

@@ -8,7 +8,10 @@ var express = require('express'),
     io = require('socket.io'),
     mongoose = require('mongoose'),
     passport = require('passport'),
-    LocalStrategy = require('passport-local').Strategy;
+    LocalStrategy = require('passport-local').Strategy,
+    moment = require('moment'),
+    helpers = require('./helpers');
+
 
 var app = express();
 // Configuration
@@ -41,10 +44,8 @@ if ('development' === app.get('env')) {
 var Account = require('./models/account');
 
 passport.use(new LocalStrategy(Account.authenticate()));
-
 passport.serializeUser(Account.serializeUser());
 passport.deserializeUser(Account.deserializeUser());
-
 // Connect mongoose
 mongoose.connect('mongodb://localhost/passport_local_mongoose_examples');
 
@@ -54,6 +55,8 @@ require('./routes')(app);
 var server = http.createServer(app).listen(app.get('port'), function(){
     console.log('Express server listening on port ' + app.get('port'));
 });
+
+//******************* SIO ********************************//
 
 // Set up socket.io
 var io = require('socket.io').listen(server);
