@@ -10,7 +10,8 @@ var express = require('express'),
     passport = require('passport'),
     LocalStrategy = require('passport-local').Strategy,
     moment = require('moment'),
-    helpers = require('./helpers');
+    helpers = require('./helpers'),
+    _ = require('underscore');
 
 
 var app = express();
@@ -58,23 +59,29 @@ var server = http.createServer(app).listen(app.get('port'), function(){
 
 //******************* SIO ********************************//
 
+var getRoomUsers = function(room){
+    return _.pluck(room, 'userName');
+};
+
 // Set up socket.io
 var io = require('socket.io').listen(server);
-// Handle socket traffic
-var clients = [],
-    numClients = 0;
 io.sockets.on('connection', function (socket) {
-    numClients++;
-    clients.push({
-        'name' : 'Guest' + numClients,
-        'id' : socket.id
+
+    socket.on('room', function(room){
+        socket.join(room);
+        socket.userName = "Guest" + io.sockets.clients(room).length;
+        socket.userRoom = room;
+        io.sockets.in(room).emit('users:update', getRoomUsers(io.sockets.clients(room)));
+
     });
 
-    socket.on('disconnect', function () {
-        numClients--;
-        clients.splice(clients.indexOf(socket), 1);
-        io.sockets.emit('users:update', clients);
-    });
-    io.sockets.emit('users:update', clients);
+    socket.on('nameChange', function(data){
+        socket.userName = data;
+    })
+
+    socket.on('disconnect', function(){
+        socket.leave(socket.userRoom);
+        io.sockets.in(socket.userRoom).emit('users:update', getRoomUsers(io.sockets.clients(socket.userRoom)));
+    })
 });
 

@@ -39,8 +39,8 @@ require(['jquery', 'backbone', 'underscore', 'io', 'firepad', 'jquery.cookie'], 
         }
         return hash;
     };
-    
-    var firepadRef = new Firebase('devscreen.firebaseIO.com/');
+    var roomHash = document.URL.substr('26');
+    var firepadRef = new Firebase('devscreen.firebaseIO.com/' + roomHash);
 	window.editor = CodeMirror.fromTextArea($('#code')[0], {
 	    mode:  'javascript',
         lineNumbers:true,
@@ -55,6 +55,9 @@ require(['jquery', 'backbone', 'underscore', 'io', 'firepad', 'jquery.cookie'], 
     });
 
     var socket = io.connect('http://localhost');
+    socket.on('connect', function(){
+        socket.emit('room', roomHash);
+    });
 
     var userListView = Backbone.View.extend({
         el: $('#users'),
@@ -73,7 +76,7 @@ require(['jquery', 'backbone', 'underscore', 'io', 'firepad', 'jquery.cookie'], 
             console.log(users);
             _.each(users, function(user, index){
                 $fragment.append(that.template({
-                    name: user.name
+                    name: user
                 }));
             });  
             this.$el.html($fragment);
