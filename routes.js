@@ -3,6 +3,11 @@ var passport = require('passport'),
     helpers = require('./helpers');
 
 module.exports = function (app) {
+    app.all('/*', function(req, res, next) {
+      res.header("Access-Control-Allow-Origin", "*");
+      res.header("Access-Control-Allow-Headers", "X-Requested-With");
+      next();
+    });
     
     app.get('/', function (req, res) {
         res.render('index', { user : req.user });
@@ -38,7 +43,7 @@ module.exports = function (app) {
                 if (err) { //exception occurred
                     return next(err); 
                 }
-                return res.render('app', {user: user});
+                return res.redirect('app');
             });
         })(req, res, next);
     });

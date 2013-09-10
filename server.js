@@ -69,14 +69,17 @@ io.sockets.on('connection', function (socket) {
 
     socket.on('room', function(room){
         socket.join(room);
-        socket.userName = "Guest" + io.sockets.clients(room).length;
+        if (typeof socket.userName === 'undefined'){
+            socket.userName = "Guest" + io.sockets.clients(room).length;
+        }
         socket.userRoom = room;
         io.sockets.in(room).emit('users:update', getRoomUsers(io.sockets.clients(room)));
 
     });
 
-    socket.on('nameChange', function(data){
+    socket.on('name:change', function(data){
         socket.userName = data;
+        io.sockets.in(socket.userRoom).emit('users:update', getRoomUsers(io.sockets.clients(socket.userRoom)));
     })
 
     socket.on('disconnect', function(){

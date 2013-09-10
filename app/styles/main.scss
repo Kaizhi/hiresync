@@ -211,11 +211,14 @@ footer {
         border-radius: 3px;
         margin-bottom:.4em;
         .pure-button{
-            width: 47%;
+            width: 47.2%;
             &:nth-child(odd){
-                margin-right:.8em;
+                margin-right: 1em;
             }
     
+        }
+        hr{
+            margin:1em 0;
         }
 
         .users{

@@ -21,20 +21,20 @@ body.app
 			button.pure-button.primary-button 
 				a(href='/app') New
 			button.pure-button.secondary-button Record
-		.card
+			hr
 			ul.users#users
 	textarea#code
 
 	script(type='text/template', id='user-list-item-tpl')
 		li
-			| {{name}}
+			| <%=name%>
 
-	//build:js scripts/demo.js 
+	//build:js js/app.js 
 	if (user)
 		script
 			window.user = "#{user.username}";
 	script(src='https://cdn.firebase.com/v0/firebase.js')
 	script(type='text/javascript', src='../bower_components/CodeMirror/lib/codemirror.js')
 	script(type='text/javascript', src='../bower_components/CodeMirror/mode/javascript/javascript.js')
-	script(data-main='../scripts/demo', src='../bower_components/requirejs/require.js')
+	script(data-main='../js/init', src='../bower_components/requirejs/require.js')
 	//endbuild 

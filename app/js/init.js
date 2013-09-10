@@ -4,9 +4,11 @@ require.config({
         'jquery.cookie': '../bower_components/jquery.cookie/jquery.cookie',
         'codemirror-js': '../bower_components/CodeMirror/mode/javascript/javascript',
         'io': '../bower_components/socket.io-client/dist/socket.io',
-        'firepad': '../scripts/firepad',
+        'firepad': '../js/lib/firepad',
         'backbone': '../bower_components/backbone/backbone-min',
-        'underscore': '../bower_components/underscore/underscore-min'
+        'underscore': '../bower_components/underscore/underscore-min',
+        'app':'../js/app',
+        'router': '../js/router'
     },
     shim: {
         'firepad' : {
@@ -20,70 +22,14 @@ require.config({
             deps: ["underscore", "jquery"],
             exports: "Backbone"
         }
-        
     }
 });
 
-require(['jquery', 'backbone', 'underscore', 'io', 'firepad', 'jquery.cookie'], function ($, Backbone, _, io, Firepad) {
+require(['app',  './views/userlist'], function (App, userListView) {
     'use strict';
-
-    _.templateSettings = { 'interpolate' : /{{([\s\S]+?)}}/g };
-
-    String.prototype.hashCode = function(){
-        var hash = 0, i, l, char;
-        if (this.length === 0) return hash;
-        for (i = 0, l = this.length; i < l; i++) {
-            char  = this.charCodeAt(i);
-            hash  = ((hash<<5)-hash)+char;
-            hash |= 0; // Convert to 32bit integer
-        }
-        return hash;
-    };
-    var roomHash = document.URL.substr('26');
-    var firepadRef = new Firebase('devscreen.firebaseIO.com/' + roomHash);
-	window.editor = CodeMirror.fromTextArea($('#code')[0], {
-	    mode:  'javascript',
-        lineNumbers:true,
-	    theme: 'monokai'
-	});
-    var firepad = Firepad.fromCodeMirror(firepadRef, window.editor);
-    //// Initialize contents.
-    firepad.on('ready', function() {
-        if (firepad.isHistoryEmpty()) {
-            firepad.setText('// JavaScript Editing with Firepad!');
-        }
-    });
-
-    var socket = io.connect('http://localhost');
-    socket.on('connect', function(){
-        socket.emit('room', roomHash);
-    });
-
-    var userListView = Backbone.View.extend({
-        el: $('#users'),
-        template: _.template($("#user-list-item-tpl").html()),
-        events: {
-        },
-
-        initialize: function(){
-            this.listenTo(socket, 'users:update', _.bind(this.render, this));            
-        },
-
-        render: function(users){
-            var that = this,
-                $fragment = $(document.createDocumentFragment());
-
-            console.log(users);
-            _.each(users, function(user, index){
-                $fragment.append(that.template({
-                    name: user
-                }));
-            });  
-            this.$el.html($fragment);
-        }
-    })
     var UserListView = new userListView();
 
+});
     
     /*window.playback = CodeMirror.fromTextArea($("#replay")[0], {
         mode:  "javascript",
@@ -150,4 +96,4 @@ require(['jquery', 'backbone', 'underscore', 'io', 'firepad', 'jquery.cookie'], 
 	        });
 	    }
 	});*/
-});
+
