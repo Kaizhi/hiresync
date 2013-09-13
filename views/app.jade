@@ -2,7 +2,7 @@
 head
 	meta(charset='utf-8')
 	meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
-	title Devscreen
+	title CodeScreen
 	meta(name='description', content='')
 	meta(name='viewport', content='width=device-width')
 	//Place favicon.ico and apple-touch-icon.png in the root directory 
@@ -23,18 +23,27 @@ body.app
 			button.pure-button.secondary-button Record
 			hr
 			ul.users#users
+			hr
+			div#syntax.codrop-dropdown JavaScript
+				ul.dropdown
+
+			div#theme.codrop-dropdown Monokai
+				ul.dropdown
+
 	textarea#code
 
 	script(type='text/template', id='user-list-item-tpl')
 		li
 			| <%=name%>
 
+	script(type='text/template', id='editor-dropdown-list-item-tpl')
+		li
+			a(data-path!='<%=itemPath%>', href='#') <%=item%>
+
 	//build:js js/app.js 
 	if (user)
 		script
 			window.user = "#{user.username}";
 	script(src='https://cdn.firebase.com/v0/firebase.js')
-	script(type='text/javascript', src='../bower_components/CodeMirror/lib/codemirror.js')
-	script(type='text/javascript', src='../bower_components/CodeMirror/mode/javascript/javascript.js')
 	script(data-main='../js/init', src='../bower_components/requirejs/require.js')
 	//endbuild 

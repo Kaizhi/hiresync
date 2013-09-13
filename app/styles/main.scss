@@ -229,7 +229,7 @@ footer {
             li {
                 border-left: 5px solid $orange;
                 margin-bottom:.7em;
-                padding-left:.3em;
+                padding:6px 0 6px 1em;
                 background-color:white;
                 icon{
                     color:$orange;
@@ -247,4 +247,92 @@ footer {
             }
         }
     }
+}
+
+.codrop-dropdown {
+    position: relative; /* Enable absolute positioning for children and pseudo elements */
+    margin: 0 auto;
+    padding: 6px 0px 6px 1em;
+    margin-bottom:1em;
+    /* Styles */
+    background: #fff;
+    cursor: pointer;
+    outline: none;
+    &:after{
+        content: "";
+        width: 0;
+        height: 0;
+        position: absolute;
+        right: 16px;
+        top: 50%;
+        margin-top: -3px;
+        border-width: 6px 6px 0 6px;
+        border-style: solid;
+        border-color: grey transparent;
+    }
+    &:last-child{
+        margin-bottom:0;
+    }
+    .dropdown {
+        /* Size & position */
+        position: absolute;
+        top: 100%;
+        left: -5px;
+        right: 0px;
+        z-index:2;
+        
+        /* Styles */
+        background: white;
+        transition: all 0.3s ease-out;
+        list-style: none;
+        
+        /* Hiding */
+        opacity: 0;
+        pointer-events: none;
+        margin:0px;
+        padding:0px;
+
+        li {
+            a{
+                display: block;
+                text-decoration: none;
+                color: #333;
+                border-left: 5px solid;
+                padding: 6px 0 6px 1em;
+                transition: all 0.3s ease-out;
+            }
+            &:nth-child(1n) a{
+                border-left-color: #00ACED;
+            }
+            &:nth-child(2n) a{
+                border-left-color: #4183C4;
+            }
+
+            i {
+                margin-right: 5px;
+                color: inherit;
+                vertical-align: middle;
+            }
+            &:hover a{
+                color: grey;
+            }
+        }
+    }
+}
+
+#syntax{
+    border-left: 5px solid $orange;
+}
+
+#theme{
+    border-left: 5px solid $lightblue;
+}
+
+.codrop-dropdown.active:after {
+    border-width: 0 6px 6px 6px;
+}
+ 
+.codrop-dropdown.active .dropdown {
+    opacity: 1;
+    pointer-events: auto;
 }

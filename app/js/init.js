@@ -2,7 +2,11 @@ require.config({
     paths: {
         'jquery': '../bower_components/jquery/jquery',
         'jquery.cookie': '../bower_components/jquery.cookie/jquery.cookie',
+        'codemirror' : '../bower_components/CodeMirror/lib/codemirror',
         'codemirror-js': '../bower_components/CodeMirror/mode/javascript/javascript',
+        'codemirror-clike': '../bower_components/CodeMirror/mode/clike/clike',
+
+        'codemirror-loadmode': '../bower_components/CodeMirror/mode/loadmode',
         'io': '../bower_components/socket.io-client/dist/socket.io',
         'firepad': '../js/lib/firepad',
         'backbone': '../bower_components/backbone/backbone-min',
@@ -12,22 +16,33 @@ require.config({
     },
     shim: {
         'firepad' : {
+            deps: ['codemirror'],
             exports: 'Firepad'
         },
         'jquery.cookie' : ['jquery'],
-        underscore: {
+        'underscore': {
             exports: '_'
         },
-        backbone: {
+        'backbone': {
             deps: ["underscore", "jquery"],
             exports: "Backbone"
-        }
+        },
+        'codemirror': {
+            exports: 'CodeMirror'
+        },
+        'codemirror-js' : ['codemirror'],
+        'codemirror-clike' : ['codemirror'],
+
+        'codemirror-loadmode' : ['codemirror']
+
     }
 });
 
-require(['app',  './views/userlist'], function (App, userListView) {
+require(['app',  './views/userlist', './views/editoroptions'], function (App, userListView, editorOptionsView) {
     'use strict';
+
     var UserListView = new userListView();
+    var EditorOptionsView = new editorOptionsView();
 
 });
     
