@@ -4,7 +4,9 @@ define(['jquery', 'backbone', 'underscore', 'app'], function ($, Backbone, _, Ap
         dropdownItemTemplate: _.template($("#editor-dropdown-list-item-tpl").html()),
         events: {
             'click .codrop-dropdown': 'onDropdownClicked',
-            'click .codrop-dropdown li': 'onDropdownItemClicked'
+            'click #syntax.codrop-dropdown li': 'selectMode',
+            'click #theme.codrop-dropdown li': 'selectTheme'
+
         },
 
         syntaxItems: [
@@ -25,7 +27,7 @@ define(['jquery', 'backbone', 'underscore', 'app'], function ($, Backbone, _, Ap
 
         themeItems: [
             'Monokai',
-            'Solaris'
+            'Solarized'
         ],
 
         initialize: function(){
@@ -58,7 +60,7 @@ define(['jquery', 'backbone', 'underscore', 'app'], function ($, Backbone, _, Ap
             evt.stopPropagation();
         },
 
-        onDropdownItemClicked: function(evt){
+        selectMode: function(evt){
             evt.preventDefault();
             var name = $(evt.target).data('path'),
                 upperName = $(evt.target).text();
@@ -87,6 +89,15 @@ define(['jquery', 'backbone', 'underscore', 'app'], function ($, Backbone, _, Ap
 
         updateModeName: function(upperName){
             $("#syntax")[0].firstChild.nodeValue = upperName;
+        },
+
+        selectTheme: function(evt){
+            evt.preventDefault();
+            var name = $(evt.target).data('path'),
+                upperName = $(evt.target).text();
+            App.mainEditor.setOption('theme', name);
+            $("#theme")[0].firstChild.nodeValue = upperName;
+
         }
     })
 
