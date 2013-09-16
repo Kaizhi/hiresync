@@ -38,12 +38,9 @@ require.config({
     }
 });
 
-require(['app',  './views/userlist', './views/editoroptions'], function (App, userListView, editorOptionsView) {
+require(['app',  './views/maincard'], function (App, MainCardView) {
     'use strict';
-
-    var UserListView = new userListView();
-    var EditorOptionsView = new editorOptionsView();
-
+    var mainCardView = new MainCardView();
 });
     
     /*window.playback = CodeMirror.fromTextArea($("#replay")[0], {

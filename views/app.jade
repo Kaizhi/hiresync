@@ -19,10 +19,25 @@ head
 	//endbuild 
 body.app
 	.cards
+	.modal.card
+		form.pure-form.new-question-form(method="post")
+			fieldset.pure-group
+				input.pure-input-1(type='text', placeholder='Title', name="title")
+				textarea(placeholder='//Find the sum of all the multiples of 3 or 5 below 1000.')
+			button.pure-button.pure-input-1.pure-button.secondary-button.cancel(type='cancel') Cancel
+			button.pure-button.pure-input-1.pure-button.primary-button.save(type='submit') Save
+
+	textarea#code
+
+	script(type='text/template', id='main-card-tpl')
 		.card
 			button.pure-button.primary-button 
 				a(href='/app') New
 			button.pure-button.secondary-button Record
+			hr
+			button.pure-button.primary-button.newTemplate New
+			button.pure-button.secondary-button.loadTemplate Load
+
 			hr
 			ul.users#users
 			hr
@@ -31,8 +46,7 @@ body.app
 
 			div#theme.codrop-dropdown Monokai
 				ul.dropdown
-
-	textarea#code
+			
 
 	script(type='text/template', id='user-list-item-tpl')
 		li

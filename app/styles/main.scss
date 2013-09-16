@@ -211,9 +211,9 @@ footer {
         border-radius: 3px;
         margin-bottom:.4em;
         .pure-button{
-            width: 47.2%;
-            &:nth-child(odd){
-                margin-right: 1em;
+            width: 48.2%;
+            &:nth-of-type(odd){
+                margin-right: 3.3%;
             }
     
         }
@@ -245,6 +245,22 @@ footer {
                     margin-bottom:0;
                 }
             }
+        }
+    }
+}
+
+.modal{
+    z-index: 10;
+    top: 2%;
+    position: absolute;
+    left: 50%;
+    margin-left: -250px;
+    width: 500px;
+    display:none;
+    .new-question-form{
+        textarea{
+            width:100%;
+            min-height:20em;
         }
     }
 }
