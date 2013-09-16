@@ -1,5 +1,7 @@
 var passport = require('passport'),
+    mongoose = require('mongoose'),
     Account = require('./models/account'),
+    Questions = require('./models/questions'),
     helpers = require('./helpers');
 
 module.exports = function (app) {
@@ -64,10 +66,51 @@ module.exports = function (app) {
         });
     });
 
+    /* API calls*/
+
     app.get('/api/user', function(req, res){
         if (req.user){
             return res.send(req.user);
         } 
         res.send(401);
     });
+
+    app.get('/api/questions', function(req, res){
+        if (req.user){
+            var Questions = mongoose.model('Questions');
+            Questions.find({ 'username': req.user.username }, function (err, doc) {
+                if (err) {
+                    return res.send(500);
+                }
+                return res.send(doc);
+            })
+        }  
+        res.send(401);
+    });
+
+    app.post('/api/question', function(req, res){
+        if (req.user){ //obligatory auth block
+            var Questions = mongoose.model('Questions');
+            var question = new Questions({
+                title: req.body.title,
+                content: req.body.content,
+                user: req.user.username
+            });
+            question.save(function(err){
+                if (err){
+                    return res.send(500);
+                }
+            });
+
+
+            return res.send(200);
+        }
+        res.send(401);
+    });
+
+    app.get('/test', function(req, res){
+        helpers.fetch(req, res, 'kevin@kevin.com');
+    });
+
+
 };
