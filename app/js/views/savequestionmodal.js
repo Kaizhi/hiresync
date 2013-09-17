@@ -1,4 +1,4 @@
-define(['jquery', 'backbone', 'underscore', 'app', '../models/question'], function ($, Backbone, _, App, QuestionModel){    
+define(['jquery', 'backbone', 'underscore', 'app', '../models/questionmodel'], function ($, Backbone, _, App, QuestionModel){    
     //parent view for the cards style sidebar options
     var saveQuestionModal = Backbone.View.extend({
         el: $('.modal'),        
