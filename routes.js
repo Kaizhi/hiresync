@@ -75,17 +75,18 @@ module.exports = function (app) {
         res.send(401);
     });
 
-    app.get('/api/questions', function(req, res){
+    app.get('/api/questions', function(req, res, next){
         if (req.user){
             var Questions = mongoose.model('Questions');
-            Questions.find({ 'username': req.user.username }, function (err, doc) {
+            Questions.find({ 'user': req.user.username }, 'title content _id', function (err, doc) {
                 if (err) {
                     return res.send(500);
                 }
                 return res.send(doc);
             })
-        }  
-        res.send(401);
+        } else{
+            return res.send(401);
+        }
     });
 
     app.post('/api/question', function(req, res){
