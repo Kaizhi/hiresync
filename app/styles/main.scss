@@ -221,7 +221,7 @@ footer {
             margin:1em 0;
         }
 
-        .users{
+        .users, .questions{
             margin:0;
             padding:0;
             list-style-type: none;
@@ -232,6 +232,7 @@ footer {
                 padding:6px 0 6px 1em;
                 background-color:white;
                 icon{
+                    margin-left:2em;
                     color:$orange;
                 }
                 .icon-remove{
@@ -249,18 +250,38 @@ footer {
     }
 }
 
-.modal{
+#modal{
     z-index: 10;
     top: 2%;
     position: absolute;
     left: 50%;
-    margin-left: -250px;
-    width: 500px;
+    margin-left: -375px;
+    width: 750px;
+    height:30em;
     display:none;
     .new-question-form{
+        float:right;
+        width:500px;
         textarea{
             width:100%;
-            min-height:20em;
+            min-height:30em;
+        }
+    }
+    #questions-list{
+        float: left;
+        width: 230px;
+        margin-top: 5px;
+        height:100%;
+        overflow-y:scroll;
+        li {
+            border-left:5px solid $lightblue;
+            cursor:pointer;
+        }
+        li:hover{
+            border-left:5px solid $orange;
+        }
+        li.new{
+            border-left:5px solid $orange;
         }
     }
 }

@@ -6,9 +6,9 @@ var passport = require('passport'),
 
 module.exports = function (app) {
     app.all('/*', function(req, res, next) {
-      res.header("Access-Control-Allow-Origin", "*");
-      res.header("Access-Control-Allow-Headers", "X-Requested-With");
-      next();
+        res.header("Access-Control-Allow-Origin", "*");
+        res.header("Access-Control-Allow-Headers", "X-Requested-With");
+        next();
     });
     
     app.get('/', function (req, res) {
@@ -89,7 +89,7 @@ module.exports = function (app) {
         }
     });
 
-    app.post('/api/question', function(req, res){
+    app.post('/api/questions', function(req, res){
         if (req.user){ //obligatory auth block
             var Questions = mongoose.model('Questions');
             var question = new Questions({
@@ -102,16 +102,9 @@ module.exports = function (app) {
                     return res.send(500);
                 }
             });
-
-
             return res.send(200);
         }
         res.send(401);
     });
-
-    app.get('/test', function(req, res){
-        helpers.fetch(req, res, 'kevin@kevin.com');
-    });
-
 
 };

@@ -1,14 +1,12 @@
 define(['jquery', 'backbone', 'underscore', 'app'], function ($, Backbone, _, App){    
     //parent view for the cards style sidebar options
-    var questionModel = Backbone.Model.extend({
+    var questionsCollection = Backbone.Collection.extend({
         url: '/api/questions',
         initialize: function(options){
-            this.title = options.title;
-            this.content = options.content;
         },
 
 
     })
 
-    return questionModel;
+    return questionsCollection;
 });

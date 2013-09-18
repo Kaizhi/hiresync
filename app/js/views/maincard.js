@@ -1,7 +1,7 @@
 define(['jquery', 'backbone', 'underscore', 'app', 
     './userlist', 
     './editoroptions',
-    './savequestionmodal'], function ($, Backbone, _, App, UserListView, EditorOptionsView, SaveQuestionModal){    
+    './questionscard'], function ($, Backbone, _, App, UserListView, EditorOptionsView, QuestionsCard){    
     //parent view for the cards style sidebar options
     var mainCard = Backbone.View.extend({
         el: $('.cards'),
@@ -24,12 +24,12 @@ define(['jquery', 'backbone', 'underscore', 'app',
                 el: this.$el.find('.card')
             });
 
-            this.saveQuestionModal = new SaveQuestionModal();
+            this.questionsCard = new QuestionsCard();
 
         },
 
         newQuestion: function(){
-            this.saveQuestionModal.show();
+            this.questionsCard.show();
         },
 
     })

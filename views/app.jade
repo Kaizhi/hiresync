@@ -19,7 +19,9 @@ head
 	//endbuild 
 body.app
 	.cards
-	.modal.card
+	.modal#modal.card
+		ul.questions#questions-list
+
 		form.pure-form.new-question-form(method="post")
 			fieldset.pure-group
 				input.pure-input-1(type='text', placeholder='Title', name="title")
