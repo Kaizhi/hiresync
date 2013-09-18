@@ -12,7 +12,9 @@
     "passport-local": "~0.1.6",
     "hashids": "0.3.0",
     "moment": "2.1.0",
-    "underscore" : "1.5.2"
+    "underscore" : "1.5.2",
+    "connect-mongo": "0.3.3",
+    "connect": ">= 0.0.0"
 
 
   },

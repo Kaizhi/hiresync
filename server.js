@@ -11,7 +11,9 @@ var express = require('express'),
     LocalStrategy = require('passport-local').Strategy,
     moment = require('moment'),
     helpers = require('./helpers'),
-    _ = require('underscore');
+    _ = require('underscore'),
+    connect = require('connect'),
+    MongoStore = require('connect-mongo')(connect);
 
 
 var app = express();
@@ -27,7 +29,17 @@ app.configure(function(){
     app.use(express.methodOverride());
 
     app.use(express.cookieParser('your secret here'));
-    app.use(express.session());
+    mongoose.connect('mongodb://localhost/passport_local_mongoose_examples');
+
+    app.use(express.session({
+        secret:'secret',
+        maxAge: new Date(Date.now() + 3600000),
+        store: new MongoStore(
+            {db:mongoose.connection.db},
+            function(err){
+                console.log(err || 'connect-mongodb setup ok');
+            })
+    }));
 
     app.use(passport.initialize());
     app.use(passport.session());
@@ -48,7 +60,6 @@ passport.use(new LocalStrategy(Account.authenticate()));
 passport.serializeUser(Account.serializeUser());
 passport.deserializeUser(Account.deserializeUser());
 // Connect mongoose
-mongoose.connect('mongodb://localhost/passport_local_mongoose_examples');
 
 // Setup routes
 require('./routes')(app);
