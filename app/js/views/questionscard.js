@@ -5,7 +5,8 @@ define(['jquery', 'backbone', 'underscore', 'app', '../models/questionmodel', '.
         questionItemTemplate: _.template($("#user-list-item-tpl").html()),
         events: {
             'click .save': 'save',
-            'click .cancel': 'cancel',
+            'click .load': 'load',
+            'click .cancel' : 'cancel',
             'click .questions li:not(.new)': 'showSelectedQuestion',
             'click .questions li.new': 'prepareNewQuestion'
         },
@@ -15,6 +16,8 @@ define(['jquery', 'backbone', 'underscore', 'app', '../models/questionmodel', '.
             this.viewModel = new Backbone.Model();
             this.$title = this.$el.find('input');
             this.$content = this.$el.find('textarea');
+            this.isShown = false;
+
         },
 
         render: function(){
@@ -55,10 +58,18 @@ define(['jquery', 'backbone', 'underscore', 'app', '../models/questionmodel', '.
 
         show: function(){
             var that = this;
-            this.$el.show();
-            this.questions.fetch().done(function(){
-                that.render();
-            });
+
+            if (this.isShown === false){
+                this.isShown = true;
+                this.$el.show();
+                this.questions.fetch().done(function(){
+                    that.render();
+                });
+            } else {
+                this.$el.hide();
+                this.isShown = false;
+            }
+
         },
 
         showSelectedQuestion: function(evt){
@@ -73,6 +84,11 @@ define(['jquery', 'backbone', 'underscore', 'app', '../models/questionmodel', '.
             this.$title.val('');
             this.$content.val('');
             this.viewModel.set('selected', -1);
+        },
+
+        load: function(evt){
+            evt.preventDefault();
+            App.firepad.setText(this.$content.val());
         },
 
         cancel: function(evt){
