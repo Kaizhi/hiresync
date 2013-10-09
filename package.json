@@ -9,6 +9,7 @@
     "passport": ">= 0.0.0",
     "passport-local": ">= 0.0.0",
     "passport-local-mongoose": ">= 0.0.0",
+    "jade" : ">= 0.0.0",
     "mongodb": ">= 0.0.0",
     "mongoose": ">= 0.0.0",
     "passport-local": "~0.1.6",
