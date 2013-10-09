@@ -1,9 +1,10 @@
 {
-  "name": "marketing",
+  "name": "hiresync",
   "version": "0.0.0",
   "dependencies": {
     "express": "3.3.1",
     "socket.io": "~0.9.14",
+    "socket.io-client" : ">= 0.0.0",
     "connect-flash": "0.1.x",
     "passport": ">= 0.0.0",
     "passport-local": ">= 0.0.0",
