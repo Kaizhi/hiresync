@@ -6,7 +6,7 @@ require.config({
         'codemirror-js': '../bower_components/CodeMirror/mode/javascript/javascript',
         'codemirror-clike': '../bower_components/CodeMirror/mode/clike/clike',
 
-        'codemirror-loadmode': '../bower_components/CodeMirror/mode/loadmode',
+        'codemirror-loadmode': '../js/lib/loadmode',
         'io': '../bower_components/socket.io-client/dist/socket.io',
         'firepad': '../js/lib/firepad',
         'backbone': '../bower_components/backbone/backbone-min',
