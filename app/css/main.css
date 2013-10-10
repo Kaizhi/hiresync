@@ -1464,33 +1464,33 @@ footer {
 
 /* line 125, ../styles/main.scss */
 .splash {
-  padding: 3em 0.5em;
-  background-image: url("../images/bg.jpg");
+  background-image: url("../images/bg2.jpg");
   background-color: transparent;
-  background-color: #3db1ff;
+  background-color: black;
   background-size: cover;
   min-height: 600px;
 }
-/* line 133, ../styles/main.scss */
+/* line 132, ../styles/main.scss */
 .splash p {
   text-align: center;
 }
-/* line 139, ../styles/main.scss */
+/* line 138, ../styles/main.scss */
 .splash .splash-head {
   font-size: 300%;
-  font-weight: 300;
-  margin: 2em 0 0 0;
+  font-weight: 400;
+  margin: 3em 0 0 0;
   line-height: 1.2em;
   color: white;
   text-align: center;
   text-transform: capitalize;
+  letter-spacing: 3px;
 }
 /* line 149, ../styles/main.scss */
 .splash .splash-subhead {
   color: white;
-  font-weight: 100;
+  font-weight: 200;
   line-height: 1.4em;
-  margin-bottom: 2em;
+  margin-bottom: 3em;
   padding: 0 25%;
   text-align: center;
 }
