@@ -18,11 +18,6 @@ define(['jquery', 'backbone', 'underscore', 'io', 'firepad', 'codemirror', 'code
     });
     App.firepad = Firepad.fromCodeMirror(firepadRef, App.mainEditor);
     //// Initialize contents.
-    App.firepad.on('ready', function() {
-        if (App.firepad.isHistoryEmpty()) {
-            App.firepad.setText('// JavaScript Editing with Firepad!');
-        }
-    });
 
     return App;
 });
