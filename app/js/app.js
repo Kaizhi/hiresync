@@ -4,7 +4,7 @@ define(['jquery', 'backbone', 'underscore', 'io', 'firepad', 'codemirror', 'code
     var loc = document.URL.indexOf('app/');
     App.roomHash = document.URL.substr(loc + 4).replace('#', '');
 
-    App.socket = io.connect('http://localhost');
+    App.socket = io.connect(window.location.origin);
     App.socket.on('connect', function(){
         App.socket.emit('room', App.roomHash);
     });
