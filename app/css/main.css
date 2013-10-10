@@ -1417,7 +1417,7 @@ footer {
 /* line 77, ../styles/main.scss */
 .section h1 {
   font-size: 2em;
-  font-weight: lighter;
+  font-weight: 200;
   color: #e74c3c;
   margin-top: 1.5em;
   text-align: center;
@@ -1458,7 +1458,7 @@ footer {
 .container .login h2 {
   color: #565D64;
   text-align: center;
-  font-weight: lighter;
+  font-weight: 200;
   margin-top: 0;
 }
 
@@ -1505,8 +1505,8 @@ footer {
 }
 
 /* line 166, ../styles/main.scss */
-.pure-menu-heading {
-  zoom: 1.5;
+.pure-menu .pure-menu-heading {
+  font-size: 1.4em;
 }
 
 /* line 170, ../styles/main.scss */
