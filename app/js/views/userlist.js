@@ -22,6 +22,7 @@ define(['jquery', 'backbone', 'underscore', 'app'], function ($, Backbone, _, Ap
                 }));
             });  
             this.$el.html($fragment);
+            App.spinner.stop();
         }
     })
 

@@ -20,6 +20,15 @@ body {
 
 }
 
+#loader {
+    width:100%;
+    height:100%;
+    z-index:5000;
+    position:absolute;
+    top:0%;
+    left:0%;
+}
+
 button a{
     color: white;
     text-decoration: none;
@@ -185,6 +194,11 @@ footer {
 
 
 .app {
+    background-color: #272822;
+    #code {
+        display:none;
+    }
+
     .firepad .CodeMirror{
         position:absolute;
         top: 0;

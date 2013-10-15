@@ -11,6 +11,7 @@ require.config({
         'firepad': '../js/lib/firepad',
         'backbone': '../bower_components/backbone/backbone-min',
         'underscore': '../bower_components/underscore/underscore-min',
+        'spin': '../bower_components/spinjs/dist/spin.min',
         'app':'../js/app',
         'router': '../js/router'
     },
@@ -38,9 +39,11 @@ require.config({
     }
 });
 
-require(['app',  './views/maincard'], function (App, MainCardView) {
+require(['app',  './views/maincard', 'spin'], function (App, MainCardView, Spinner) {
     'use strict';
+
     var mainCardView = new MainCardView();
+
 });
     
     /*window.playback = CodeMirror.fromTextArea($("#replay")[0], {
