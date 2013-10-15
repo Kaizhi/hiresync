@@ -1355,36 +1355,37 @@ body {
   position: absolute;
   top: 0%;
   left: 0%;
+  pointer-events: none;
 }
 
-/* line 32, ../styles/main.scss */
+/* line 33, ../styles/main.scss */
 button a {
   color: white;
   text-decoration: none;
 }
 
-/* line 37, ../styles/main.scss */
+/* line 38, ../styles/main.scss */
 p {
   color: #777;
 }
 
-/* line 41, ../styles/main.scss */
+/* line 42, ../styles/main.scss */
 .l-box {
   padding: 1em;
 }
 
-/* line 45, ../styles/main.scss */
+/* line 46, ../styles/main.scss */
 .header {
   margin: 0 0;
 }
 
-/* line 49, ../styles/main.scss */
+/* line 50, ../styles/main.scss */
 .header .pure-menu {
   padding: 0.5em;
   background-color: rgba(255, 255, 255, 0.9);
 }
 
-/* line 55, ../styles/main.scss */
+/* line 56, ../styles/main.scss */
 .header .pure-menu li a:hover,
 .header .pure-menu li a:focus {
   background: none;
@@ -1392,39 +1393,39 @@ p {
   color: #aaa;
 }
 
-/* line 61, ../styles/main.scss */
+/* line 62, ../styles/main.scss */
 body .primary-button {
   background-color: #e74c3c;
   color: #fff;
   border-bottom: 5px solid #e43725;
 }
 
-/* line 67, ../styles/main.scss */
+/* line 68, ../styles/main.scss */
 body .secondary-button {
   background-color: #3db1ff;
   color: #fff;
   border-bottom: 5px solid #23a7ff;
 }
 
-/* line 73, ../styles/main.scss */
+/* line 74, ../styles/main.scss */
 footer {
   height: 5em;
   background-color: #2f2f2f;
   padding: 0 15%;
 }
 
-/* line 79, ../styles/main.scss */
+/* line 80, ../styles/main.scss */
 .content {
   padding: 0 15%;
   margin: 0 auto;
 }
 
-/* line 84, ../styles/main.scss */
+/* line 85, ../styles/main.scss */
 .section {
   padding-bottom: 2em;
   border-bottom: 1px solid white;
 }
-/* line 86, ../styles/main.scss */
+/* line 87, ../styles/main.scss */
 .section h1 {
   font-size: 2em;
   font-weight: 200;
@@ -1436,24 +1437,24 @@ footer {
   padding-bottom: 1.5em;
 }
 
-/* line 99, ../styles/main.scss */
+/* line 100, ../styles/main.scss */
 .section.pricing {
   padding-top: 3em;
   padding-bottom: 3em;
 }
-/* line 103, ../styles/main.scss */
+/* line 104, ../styles/main.scss */
 .section.pricing .callout-box {
   height: 480px;
   background-color: #ecf0f1;
   margin: 2em;
 }
 
-/* line 110, ../styles/main.scss */
+/* line 111, ../styles/main.scss */
 .container {
   margin: 3.7em auto 0;
   height: 100%;
 }
-/* line 114, ../styles/main.scss */
+/* line 115, ../styles/main.scss */
 .container .login {
   position: relative;
   top: 8em;
@@ -1464,7 +1465,7 @@ footer {
   background-color: #FFF;
   border-radius: 3px;
 }
-/* line 124, ../styles/main.scss */
+/* line 125, ../styles/main.scss */
 .container .login h2 {
   color: #565D64;
   text-align: center;
@@ -1472,7 +1473,7 @@ footer {
   margin-top: 0;
 }
 
-/* line 134, ../styles/main.scss */
+/* line 135, ../styles/main.scss */
 .splash {
   background-image: url("../images/bg2.jpg");
   background-color: transparent;
@@ -1480,11 +1481,11 @@ footer {
   background-size: cover;
   min-height: 600px;
 }
-/* line 141, ../styles/main.scss */
+/* line 142, ../styles/main.scss */
 .splash p {
   text-align: center;
 }
-/* line 147, ../styles/main.scss */
+/* line 148, ../styles/main.scss */
 .splash .splash-head {
   font-size: 300%;
   font-weight: 400;
@@ -1495,7 +1496,7 @@ footer {
   text-transform: capitalize;
   letter-spacing: 3px;
 }
-/* line 158, ../styles/main.scss */
+/* line 159, ../styles/main.scss */
 .splash .splash-subhead {
   color: white;
   font-weight: 200;
@@ -1504,49 +1505,49 @@ footer {
   padding: 0 25%;
   text-align: center;
 }
-/* line 166, ../styles/main.scss */
+/* line 167, ../styles/main.scss */
 .splash .primary-button {
   font-size: 150%;
 }
 
-/* line 171, ../styles/main.scss */
+/* line 172, ../styles/main.scss */
 .callout-title {
   color: #393939;
 }
 
-/* line 175, ../styles/main.scss */
+/* line 176, ../styles/main.scss */
 .pure-menu .pure-menu-heading {
   font-size: 1.4em;
 }
 
-/* line 179, ../styles/main.scss */
+/* line 180, ../styles/main.scss */
 .pure-menu ul {
   float: right;
   margin-right: 16%;
   line-height: 2.4em;
 }
 
-/* line 185, ../styles/main.scss */
+/* line 186, ../styles/main.scss */
 .pure-menu.pure-menu-horizontal > .pure-menu-heading {
   margin-left: 14%;
   float: left;
   text-transform: none;
 }
 
-/* line 191, ../styles/main.scss */
+/* line 192, ../styles/main.scss */
 .pure-form .pure-group input {
   border-radius: 2px 2px 0 0;
 }
 
-/* line 196, ../styles/main.scss */
+/* line 197, ../styles/main.scss */
 .app {
   background-color: #272822;
 }
-/* line 198, ../styles/main.scss */
+/* line 199, ../styles/main.scss */
 .app #code {
   display: none;
 }
-/* line 202, ../styles/main.scss */
+/* line 203, ../styles/main.scss */
 .app .firepad .CodeMirror {
   position: absolute;
   top: 0;
@@ -1554,7 +1555,7 @@ footer {
   width: 100%;
   left: 0;
 }
-/* line 210, ../styles/main.scss */
+/* line 211, ../styles/main.scss */
 .app .cards {
   width: 20em;
   position: absolute;
@@ -1563,7 +1564,7 @@ footer {
   height: auto;
   z-index: 100;
 }
-/* line 219, ../styles/main.scss */
+/* line 220, ../styles/main.scss */
 .app .card {
   height: auto;
   background-color: #FFF;
@@ -1573,38 +1574,38 @@ footer {
   border-radius: 3px;
   margin-bottom: .4em;
 }
-/* line 227, ../styles/main.scss */
+/* line 228, ../styles/main.scss */
 .app .card .pure-button {
   width: 48.2%;
 }
-/* line 229, ../styles/main.scss */
+/* line 230, ../styles/main.scss */
 .app .card .pure-button:nth-of-type(odd) {
   margin-right: 3.3%;
 }
-/* line 234, ../styles/main.scss */
+/* line 235, ../styles/main.scss */
 .app .card hr {
   margin: 1em 0;
 }
-/* line 238, ../styles/main.scss */
+/* line 239, ../styles/main.scss */
 .app .card .users, .app .card .questions {
   margin: 0;
   padding: 0;
   list-style-type: none;
   color: #393939;
 }
-/* line 243, ../styles/main.scss */
+/* line 244, ../styles/main.scss */
 .app .card .users li, .app .card .questions li {
   border-left: 5px solid #e74c3c;
   margin-bottom: .7em;
   padding: 6px 0 6px 1em;
   background-color: white;
 }
-/* line 248, ../styles/main.scss */
+/* line 249, ../styles/main.scss */
 .app .card .users li icon, .app .card .questions li icon {
   margin-left: 2em;
   color: #e74c3c;
 }
-/* line 252, ../styles/main.scss */
+/* line 253, ../styles/main.scss */
 .app .card .users li .icon-remove, .app .card .questions li .icon-remove {
   float: right;
   color: #393939;
@@ -1612,12 +1613,12 @@ footer {
   margin-right: 10px;
   font-size: 1.3em;
 }
-/* line 259, ../styles/main.scss */
+/* line 260, ../styles/main.scss */
 .app .card .users li:last-child, .app .card .questions li:last-child {
   margin-bottom: 0;
 }
 
-/* line 267, ../styles/main.scss */
+/* line 268, ../styles/main.scss */
 #modal {
   z-index: 10;
   top: 2%;
@@ -1628,17 +1629,17 @@ footer {
   height: 30em;
   display: none;
 }
-/* line 276, ../styles/main.scss */
+/* line 277, ../styles/main.scss */
 #modal .new-question-form {
   float: right;
   width: 500px;
 }
-/* line 279, ../styles/main.scss */
+/* line 280, ../styles/main.scss */
 #modal .new-question-form textarea {
   width: 100%;
   min-height: 30em;
 }
-/* line 284, ../styles/main.scss */
+/* line 285, ../styles/main.scss */
 #modal #questions-list {
   float: left;
   width: 230px;
@@ -1646,21 +1647,21 @@ footer {
   height: 100%;
   overflow-y: scroll;
 }
-/* line 290, ../styles/main.scss */
+/* line 291, ../styles/main.scss */
 #modal #questions-list li {
   border-left: 5px solid #3db1ff;
   cursor: pointer;
 }
-/* line 294, ../styles/main.scss */
+/* line 295, ../styles/main.scss */
 #modal #questions-list li:hover {
   border-left: 5px solid #e74c3c;
 }
-/* line 297, ../styles/main.scss */
+/* line 298, ../styles/main.scss */
 #modal #questions-list li.new {
   border-left: 5px solid #e74c3c;
 }
 
-/* line 303, ../styles/main.scss */
+/* line 304, ../styles/main.scss */
 .codrop-dropdown {
   position: relative;
   /* Enable absolute positioning for children and pseudo elements */
@@ -1672,7 +1673,7 @@ footer {
   cursor: pointer;
   outline: none;
 }
-/* line 312, ../styles/main.scss */
+/* line 313, ../styles/main.scss */
 .codrop-dropdown:after {
   content: "";
   width: 0;
@@ -1685,11 +1686,11 @@ footer {
   border-style: solid;
   border-color: grey transparent;
 }
-/* line 324, ../styles/main.scss */
+/* line 325, ../styles/main.scss */
 .codrop-dropdown:last-child {
   margin-bottom: 0;
 }
-/* line 327, ../styles/main.scss */
+/* line 328, ../styles/main.scss */
 .codrop-dropdown .dropdown {
   /* Size & position */
   position: absolute;
@@ -1707,7 +1708,7 @@ footer {
   margin: 0px;
   padding: 0px;
 }
-/* line 347, ../styles/main.scss */
+/* line 348, ../styles/main.scss */
 .codrop-dropdown .dropdown li a {
   display: block;
   text-decoration: none;
@@ -1716,41 +1717,41 @@ footer {
   padding: 6px 0 6px 1em;
   transition: all 0.3s ease-out;
 }
-/* line 355, ../styles/main.scss */
+/* line 356, ../styles/main.scss */
 .codrop-dropdown .dropdown li:nth-child(1n) a {
   border-left-color: #00ACED;
 }
-/* line 358, ../styles/main.scss */
+/* line 359, ../styles/main.scss */
 .codrop-dropdown .dropdown li:nth-child(2n) a {
   border-left-color: #4183C4;
 }
-/* line 362, ../styles/main.scss */
+/* line 363, ../styles/main.scss */
 .codrop-dropdown .dropdown li i {
   margin-right: 5px;
   color: inherit;
   vertical-align: middle;
 }
-/* line 367, ../styles/main.scss */
+/* line 368, ../styles/main.scss */
 .codrop-dropdown .dropdown li:hover a {
   color: grey;
 }
 
-/* line 374, ../styles/main.scss */
+/* line 375, ../styles/main.scss */
 #syntax {
   border-left: 5px solid #e74c3c;
 }
 
-/* line 378, ../styles/main.scss */
+/* line 379, ../styles/main.scss */
 #theme {
   border-left: 5px solid #3db1ff;
 }
 
-/* line 382, ../styles/main.scss */
+/* line 383, ../styles/main.scss */
 .codrop-dropdown.active:after {
   border-width: 0 6px 6px 6px;
 }
 
-/* line 386, ../styles/main.scss */
+/* line 387, ../styles/main.scss */
 .codrop-dropdown.active .dropdown {
   opacity: 1;
   pointer-events: auto;
