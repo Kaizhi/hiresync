@@ -72,9 +72,18 @@ body .secondary-button{
 }
 
 footer {
-    height:5em;
+    height:6em;
     background-color: $footerBlack;
     padding:0 15%;
+    p{
+        text-align:center;
+        color:$grey;
+        line-height:6em;
+
+    }
+    a{
+        color:$grey;
+    }
 }
 
 .content {
@@ -83,7 +92,6 @@ footer {
 }
 
 .section {
-    padding-bottom:2em;
     h1{
         font-size:2em;
         font-weight: 200;
@@ -94,7 +102,6 @@ footer {
         border-bottom:1px solid grey;
         padding-bottom:1.5em;
     }
-    border-bottom:1px solid white;
 }
 
 .section.pricing {
@@ -109,7 +116,7 @@ footer {
 }
 
 .container {
-    margin: 3.7em auto 0;
+    margin:0 auto;
     height:100%;
     
     .login {
@@ -148,7 +155,7 @@ footer {
     .splash-head {
         font-size: 300%;
         font-weight: 400;
-        margin: 3em 0 0 0;
+        margin: 3.7em 0 0 0;
         line-height: 1.2em;
         color: white;
         text-align:center;
