@@ -23,6 +23,7 @@ define(['jquery', 'backbone', 'underscore', 'io', 'firepad', 'spin', 'codemirror
       top: 'auto', // Top position relative to parent in px
       left: 'auto' // Left position relative to parent in px
     };
+    
     var target = document.querySelector('#loader');
     App.spinner = new Spinner(opts).spin(target);
 

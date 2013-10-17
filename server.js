@@ -70,7 +70,7 @@ var server = http.createServer(app).listen(app.get('port'), function(){
 //******************* SIO ********************************//
 
 var getRoomUsers = function(room){
-    return _.pluck(room, 'userName');
+    return _.map(room, function(obj) { return _.pick(obj, 'userName', 'id'); }); //returns an array of user objects containing userName and id
 };
 
 // Set up socket.io
@@ -78,12 +78,12 @@ var io = require('socket.io').listen(server);
 io.sockets.on('connection', function (socket) {
 
     socket.on('room', function(room){
-        socket.join(room);
+        socket.join(room); //join socket room based on client's roomHash
         if (typeof socket.userName === 'undefined'){
-            socket.userName = "Guest" + io.sockets.clients(room).length;
+            socket.userName = "Guest" + io.sockets.clients(room).length; //assign a Guest name if client has no userName
         }
         socket.userRoom = room;
-        io.sockets.in(room).emit('users:update', getRoomUsers(io.sockets.clients(room)));
+        io.sockets.in(room).emit('users:update', getRoomUsers(io.sockets.clients(room))); //update the room's clients with the updated userlist
 
     });
 

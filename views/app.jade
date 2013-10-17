@@ -52,7 +52,7 @@ body.app
 			
 
 	script(type='text/template', id='user-list-item-tpl')
-		li
+		li.single-line(contenteditable!='<%=contenteditable%>')
 			| <%=name%>
 
 	script(type='text/template', id='editor-dropdown-list-item-tpl')

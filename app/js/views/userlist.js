@@ -3,6 +3,8 @@ define(['jquery', 'backbone', 'underscore', 'app'], function ($, Backbone, _, Ap
         el: $('#users'),
         template: _.template($("#user-list-item-tpl").html()),
         events: {
+            'blur li[contenteditable="true"]': 'onNameChanged',
+            'keyup li[contenteditable="true"]': 'onEnterKeyPressed'
         },
 
         initialize: function(){
@@ -17,12 +19,28 @@ define(['jquery', 'backbone', 'underscore', 'app'], function ($, Backbone, _, Ap
                 $fragment = $(document.createDocumentFragment());
 
             _.each(users, function(user, index){
+                var contenteditable = false;
+                if (App.socket.socket.sessionid === user.id){
+                    //if this is user name for this client, we change the name in the list to contenteditable
+                    contenteditable = true;
+                }
                 $fragment.append(that.template({
-                    name: user
+                    name: user.userName,
+                    contenteditable: contenteditable
                 }));
             });  
             this.$el.html($fragment);
             App.spinner.stop();
+        },
+
+        onNameChanged: function(evt){
+            App.socket.emit('name:change', evt.target.textContent);
+        },
+
+        onEnterKeyPressed: function(evt){
+            if(evt.which === 13){
+                this.onNameChanged(evt);
+            }
         }
     })
 

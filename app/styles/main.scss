@@ -246,6 +246,29 @@ footer {
         background-color: $grey;
         border-radius: 3px;
         margin-bottom:.4em;
+
+        [contenteditable="true"].single-line {
+            white-space: nowrap;
+            overflow: hidden;
+            position: relative;
+            br{
+                display:none;
+            }
+            * {
+                display:inline;
+                white-space:nowrap;
+            }
+            &:after{
+                content: "";
+                width: 1em;
+                background-color: #FFF;
+                position: absolute;
+                height: 100%;
+                right: 0px;
+                top: 0px;
+            }
+        } 
+
         .pure-button{
             width: 48.2%;
             &:nth-of-type(odd){
