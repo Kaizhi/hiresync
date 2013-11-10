@@ -14,6 +14,11 @@ define(['jquery', 'backbone', 'underscore', 'app',
         initialize: function(){
             this.$el.html(this.template);
             this.render();          
+
+            if (!window.user){
+                $('.need-auth').addClass('hint--left').attr('data-hint', 'You must be logged in to use this feature');
+            }
+
         },
 
         render: function(){
@@ -29,6 +34,9 @@ define(['jquery', 'backbone', 'underscore', 'app',
         },
 
         newQuestion: function(){
+            if (!window.user){
+                return;
+            }
             this.questionsCard.show();
         },
 

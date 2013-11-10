@@ -8,6 +8,8 @@ head
 	//Place favicon.ico and apple-touch-icon.png in the root directory 
 	//build:css({.tmp,app}) styles/main.css 
 	link(rel='stylesheet', href='../css/main.css')
+	link(rel='stylesheet', href='../bower_components/hint.css/hint.min.css')
+
 	//endbuild 
 	//build:css({.tmp,app}) styles/codemirror.css 
 	link(href='//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css', rel='stylesheet')
@@ -36,10 +38,10 @@ body.app
 		.card
 			button.pure-button.primary-button 
 				a(href='/app') New
-			button.pure-button.secondary-button Record
+			button.pure-button.secondary-button.newTemplate.need-auth Questions
 			hr
-			button.pure-button.primary-button.newTemplate Questions
-			button.pure-button.secondary-button.loadTemplate Load
+			button.pure-button.primary-button.need-auth.record Record
+			button.pure-button.secondary-button.need-auth.play Play
 
 			hr
 			ul.users#users
