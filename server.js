@@ -1,6 +1,4 @@
-/**
- * Module dependencies.
- */
+//Module dependencies.
 'use strict';
 var express = require('express'),
     http = require('http'),
@@ -18,7 +16,7 @@ var express = require('express'),
 
 var app = express();
 // Configuration
-app.configure(function(){
+app.configure(function() {
     app.set('port', process.env.PORT || 3000);
     app.set('views', __dirname + '/views');
     app.set('view engine', 'jade');
@@ -28,15 +26,16 @@ app.configure(function(){
     app.use(express.bodyParser());
     app.use(express.methodOverride());
 
-    app.use(express.cookieParser('your secret here'));
-    mongoose.connect('mongodb://localhost/passport_local_mongoose_examples');
+    app.use(express.cookieParser('sample secret'));
+    mongoose.connect('mongodb://localhost/passport-accounts');
 
     app.use(express.session({
-        secret:'secret',
-        maxAge: new Date(Date.now() + 3600000),
-        store: new MongoStore(
-            {db:mongoose.connection.db},
-            function(err){
+        secret: 'secret',
+        cookie: { maxAge: new Date(Date.now() + 3600000)},
+        store: new MongoStore({
+                db: mongoose.connection.db
+            },
+            function(err) {
                 console.log(err || 'connect-mongodb setup ok');
             })
     }));
@@ -63,38 +62,38 @@ passport.deserializeUser(Account.deserializeUser());
 // Setup routes
 require('./routes')(app);
 
-var server = http.createServer(app).listen(app.get('port'), function(){
+var server = http.createServer(app).listen(app.get('port'), function() {
     console.log('Express server listening on port ' + app.get('port'));
 });
 
 //******************* SIO ********************************//
-
-var getRoomUsers = function(room){
-    return _.map(room, function(obj) { return _.pick(obj, 'userName', 'id'); }); //returns an array of user objects containing userName and id
+var getRoomUsers = function(room) {
+    return _.map(room, function(obj) {
+        return _.pick(obj, 'userName', 'id');
+    }); //returns an array of user objects containing userName and id
 };
 
 // Set up socket.io
 var io = require('socket.io').listen(server);
-io.sockets.on('connection', function (socket) {
+io.sockets.on('connection', function(socket) {
 
-    socket.on('room', function(room){
+    socket.on('room', function(room) {
         socket.join(room); //join socket room based on client's roomHash
-        if (typeof socket.userName === 'undefined'){
+        if (typeof socket.userName === 'undefined') {
             socket.userName = "Guest" + io.sockets.clients(room).length; //assign a Guest name if client has no userName
         }
         socket.userRoom = room;
-        io.sockets.in(room).emit('users:update', getRoomUsers(io.sockets.clients(room))); //update the room's clients with the updated userlist
+        io.sockets. in (room).emit('users:update', getRoomUsers(io.sockets.clients(room))); //update the room's clients with the updated userlist
 
     });
 
-    socket.on('name:change', function(data){
+    socket.on('name:change', function(data) {
         socket.userName = data;
-        io.sockets.in(socket.userRoom).emit('users:update', getRoomUsers(io.sockets.clients(socket.userRoom)));
+        io.sockets. in (socket.userRoom).emit('users:update', getRoomUsers(io.sockets.clients(socket.userRoom)));
     })
 
-    socket.on('disconnect', function(){
+    socket.on('disconnect', function() {
         socket.leave(socket.userRoom);
-        io.sockets.in(socket.userRoom).emit('users:update', getRoomUsers(io.sockets.clients(socket.userRoom)));
+        io.sockets. in (socket.userRoom).emit('users:update', getRoomUsers(io.sockets.clients(socket.userRoom)));
     })
 });
-
