@@ -27,6 +27,7 @@ define(['jquery', 'backbone', 'underscore', 'app', '../models/questionmodel', '.
 
             $fragment.append( $(that.questionItemTemplate({
                 name: 'Add New Question',
+                contenteditable: 'false'
             })).addClass('new').append('<icon class="icon-plus"/>') );
 
             _.each(this.questions.models, function(question, index){

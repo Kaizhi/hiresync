@@ -27,7 +27,7 @@ define(['jquery', 'backbone', 'underscore', 'app'], function ($, Backbone, _, Ap
 
         themeItems: [
             'Monokai',
-            'Solarized'
+            'Default'
         ],
 
         initialize: function(){
