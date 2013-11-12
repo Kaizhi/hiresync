@@ -1671,25 +1671,26 @@ footer a {
   margin-left: -375px;
   width: 750px;
   height: 30em;
-  display: none;
+  opacity: 0;
+  transition: opacity .3s ease;
 }
-/* line 321, ../styles/main.scss */
+/* line 322, ../styles/main.scss */
 #modal .new-question-form {
   float: right;
   width: 500px;
 }
-/* line 324, ../styles/main.scss */
+/* line 325, ../styles/main.scss */
 #modal .new-question-form textarea {
   width: 100%;
   min-height: 30em;
 }
-/* line 328, ../styles/main.scss */
+/* line 329, ../styles/main.scss */
 #modal .new-question-form .CodeMirror {
   border: 1px solid #cccccc;
   box-shadow: inset 0 1px 3px #dddddd;
   min-height: 30em;
 }
-/* line 334, ../styles/main.scss */
+/* line 335, ../styles/main.scss */
 #modal #questions-list {
   float: left;
   width: 230px;
@@ -1697,21 +1698,21 @@ footer a {
   height: 100%;
   overflow-y: scroll;
 }
-/* line 340, ../styles/main.scss */
+/* line 341, ../styles/main.scss */
 #modal #questions-list li {
   border-left: 5px solid #3db1ff;
   cursor: pointer;
 }
-/* line 344, ../styles/main.scss */
+/* line 345, ../styles/main.scss */
 #modal #questions-list li:hover {
   border-left: 5px solid #e74c3c;
 }
-/* line 347, ../styles/main.scss */
+/* line 348, ../styles/main.scss */
 #modal #questions-list li.new {
   border-left: 5px solid #e74c3c;
 }
 
-/* line 353, ../styles/main.scss */
+/* line 354, ../styles/main.scss */
 .codrop-dropdown {
   position: relative;
   /* Enable absolute positioning for children and pseudo elements */
@@ -1723,7 +1724,7 @@ footer a {
   cursor: pointer;
   outline: none;
 }
-/* line 362, ../styles/main.scss */
+/* line 363, ../styles/main.scss */
 .codrop-dropdown:after {
   content: "";
   width: 0;
@@ -1736,11 +1737,11 @@ footer a {
   border-style: solid;
   border-color: grey transparent;
 }
-/* line 374, ../styles/main.scss */
+/* line 375, ../styles/main.scss */
 .codrop-dropdown:last-child {
   margin-bottom: 0;
 }
-/* line 377, ../styles/main.scss */
+/* line 378, ../styles/main.scss */
 .codrop-dropdown .dropdown {
   /* Size & position */
   position: absolute;
@@ -1758,7 +1759,7 @@ footer a {
   margin: 0px;
   padding: 0px;
 }
-/* line 397, ../styles/main.scss */
+/* line 398, ../styles/main.scss */
 .codrop-dropdown .dropdown li a {
   display: block;
   text-decoration: none;
@@ -1767,41 +1768,41 @@ footer a {
   padding: 6px 0 6px 1em;
   transition: all 0.3s ease-out;
 }
-/* line 405, ../styles/main.scss */
+/* line 406, ../styles/main.scss */
 .codrop-dropdown .dropdown li:nth-child(1n) a {
   border-left-color: #00ACED;
 }
-/* line 408, ../styles/main.scss */
+/* line 409, ../styles/main.scss */
 .codrop-dropdown .dropdown li:nth-child(2n) a {
   border-left-color: #4183C4;
 }
-/* line 412, ../styles/main.scss */
+/* line 413, ../styles/main.scss */
 .codrop-dropdown .dropdown li i {
   margin-right: 5px;
   color: inherit;
   vertical-align: middle;
 }
-/* line 417, ../styles/main.scss */
+/* line 418, ../styles/main.scss */
 .codrop-dropdown .dropdown li:hover a {
   color: grey;
 }
 
-/* line 424, ../styles/main.scss */
+/* line 425, ../styles/main.scss */
 #syntax {
   border-left: 5px solid #e74c3c;
 }
 
-/* line 428, ../styles/main.scss */
+/* line 429, ../styles/main.scss */
 #theme {
   border-left: 5px solid #3db1ff;
 }
 
-/* line 432, ../styles/main.scss */
+/* line 433, ../styles/main.scss */
 .codrop-dropdown.active:after {
   border-width: 0 6px 6px 6px;
 }
 
-/* line 436, ../styles/main.scss */
+/* line 437, ../styles/main.scss */
 .codrop-dropdown.active .dropdown {
   opacity: 1;
   pointer-events: auto;

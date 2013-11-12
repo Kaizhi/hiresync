@@ -317,7 +317,8 @@ footer {
     margin-left: -375px;
     width: 750px;
     height:30em;
-    display:none;
+    opacity: 0;
+    transition: opacity .3s ease;
     .new-question-form{
         float:right;
         width:500px;
