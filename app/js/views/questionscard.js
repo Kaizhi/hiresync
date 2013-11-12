@@ -15,7 +15,6 @@ define(['jquery', 'backbone', 'underscore', 'app', '../models/questionmodel', '.
             this.questions = new QuestionsCollection();
             this.viewModel = new Backbone.Model();
             this.$title = this.$el.find('input');
-            this.$content = this.$el.find('textarea');
             this.isShown = false;
 
         },
@@ -32,7 +31,8 @@ define(['jquery', 'backbone', 'underscore', 'app', '../models/questionmodel', '.
 
             _.each(this.questions.models, function(question, index){
                 $fragment.append(that.questionItemTemplate({
-                    name: question.get('title')
+                    name: question.get('title'),
+                    contenteditable: 'false'
                 }));
             });
 
@@ -44,20 +44,23 @@ define(['jquery', 'backbone', 'underscore', 'app', '../models/questionmodel', '.
                 lineNumbers:true,
                 value: '//Find the sum of all the multiples of 3 or 5 below 1000.'
             });
+            
         },
 
         save: function(evt){
             evt.preventDefault();
             var question = new QuestionModel({
                 title: this.$el.find('input').val(),
-                content: this.$el.find('textarea').val()
+                content: this.editorInstance.getValue()
             });
             var that = this;
             question.save(null, {
                 success: function(){
                     that.show();
+                    that.show();
                 },
                 error: function(){
+                    that.show();
                     that.show();
                 }
             });
@@ -85,19 +88,19 @@ define(['jquery', 'backbone', 'underscore', 'app', '../models/questionmodel', '.
             var index = $(evt.target).index();
             this.viewModel.set('selected', index);
             this.$title.val( this.questions.at(index - 1).get('title') );
-            this.$content.val( this.questions.at(index - 1).get('content') );
+            this.editorInstance.setValue( this.questions.at(index - 1).get('content') );
 
         },
 
         prepareNewQuestion: function(evt){
             this.$title.val('');
-            this.$content.val('');
+            this.editorInstance.setValue('');
             this.viewModel.set('selected', -1);
         },
 
         load: function(evt){
             evt.preventDefault();
-            App.firepad.setText(this.$content.val());
+            App.firepad.setText(this.editorInstance.getValue());
         },
 
         cancel: function(evt){
