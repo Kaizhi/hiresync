@@ -26,7 +26,7 @@ define(['jquery', 'backbone', 'underscore', 'app', '../models/questionmodel', '.
                 $fragment = $(document.createDocumentFragment());
 
             $fragment.append( $(that.questionItemTemplate({
-                name: 'Add New Question',
+                name: 'Add New Snippet',
                 contenteditable: 'false'
             })).addClass('new').append('<icon class="icon-plus"/>') );
 
@@ -37,6 +37,13 @@ define(['jquery', 'backbone', 'underscore', 'app', '../models/questionmodel', '.
             });
 
             this.$el.find("#questions-list").append($fragment);
+
+            //create codemirror editor in the editor area
+            this.editorInstance = CodeMirror.fromTextArea(this.$el.find('textarea')[0], {
+                mode:  'javascript',
+                lineNumbers:true,
+                value: '//Find the sum of all the multiples of 3 or 5 below 1000.'
+            });
         },
 
         save: function(evt){
@@ -68,6 +75,7 @@ define(['jquery', 'backbone', 'underscore', 'app', '../models/questionmodel', '.
                 });
             } else {
                 this.$el.hide();
+                this.editorInstance.toTextArea();
                 this.isShown = false;
             }
 
