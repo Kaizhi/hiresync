@@ -232,8 +232,8 @@ footer {
     .cards {
         width:20em;
         position:absolute;
-        right:2%;
-        top:2%;
+        right:1em;
+        top:1em;
         height:auto;
         z-index:100;
     }
@@ -317,8 +317,8 @@ footer {
     margin-left: -375px;
     width: 750px;
     height:30em;
-    opacity: 0;
-    transition: opacity .3s ease;
+    display:none;
+    transition: all .3s ease;
     .new-question-form{
         float:right;
         width:500px;
@@ -350,6 +350,7 @@ footer {
         }
     }
 }
+
 
 .codrop-dropdown {
     position: relative; /* Enable absolute positioning for children and pseudo elements */

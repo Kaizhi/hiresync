@@ -72,12 +72,12 @@ define(['jquery', 'backbone', 'underscore', 'app', '../models/questionmodel', '.
 
             if (this.isShown === false){
                 this.isShown = true;
-                this.$el.css('opacity', 1);
+                this.$el.show();
                 this.questions.fetch().done(function(){
                     that.render();
                 });
             } else {
-                this.$el.css('opacity', 0);
+                this.$el.hide();;
                 this.editorInstance.toTextArea();
                 this.isShown = false;
             }

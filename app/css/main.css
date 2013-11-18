@@ -1578,8 +1578,8 @@ footer a {
 .app .cards {
   width: 20em;
   position: absolute;
-  right: 2%;
-  top: 2%;
+  right: 1em;
+  top: 1em;
   height: auto;
   z-index: 100;
 }
@@ -1671,8 +1671,8 @@ footer a {
   margin-left: -375px;
   width: 750px;
   height: 30em;
-  opacity: 0;
-  transition: opacity .3s ease;
+  display: none;
+  transition: all .3s ease;
 }
 /* line 322, ../styles/main.scss */
 #modal .new-question-form {
@@ -1712,7 +1712,7 @@ footer a {
   border-left: 5px solid #e74c3c;
 }
 
-/* line 354, ../styles/main.scss */
+/* line 355, ../styles/main.scss */
 .codrop-dropdown {
   position: relative;
   /* Enable absolute positioning for children and pseudo elements */
@@ -1724,7 +1724,7 @@ footer a {
   cursor: pointer;
   outline: none;
 }
-/* line 363, ../styles/main.scss */
+/* line 364, ../styles/main.scss */
 .codrop-dropdown:after {
   content: "";
   width: 0;
@@ -1737,11 +1737,11 @@ footer a {
   border-style: solid;
   border-color: grey transparent;
 }
-/* line 375, ../styles/main.scss */
+/* line 376, ../styles/main.scss */
 .codrop-dropdown:last-child {
   margin-bottom: 0;
 }
-/* line 378, ../styles/main.scss */
+/* line 379, ../styles/main.scss */
 .codrop-dropdown .dropdown {
   /* Size & position */
   position: absolute;
@@ -1759,7 +1759,7 @@ footer a {
   margin: 0px;
   padding: 0px;
 }
-/* line 398, ../styles/main.scss */
+/* line 399, ../styles/main.scss */
 .codrop-dropdown .dropdown li a {
   display: block;
   text-decoration: none;
@@ -1768,41 +1768,41 @@ footer a {
   padding: 6px 0 6px 1em;
   transition: all 0.3s ease-out;
 }
-/* line 406, ../styles/main.scss */
+/* line 407, ../styles/main.scss */
 .codrop-dropdown .dropdown li:nth-child(1n) a {
   border-left-color: #00ACED;
 }
-/* line 409, ../styles/main.scss */
+/* line 410, ../styles/main.scss */
 .codrop-dropdown .dropdown li:nth-child(2n) a {
   border-left-color: #4183C4;
 }
-/* line 413, ../styles/main.scss */
+/* line 414, ../styles/main.scss */
 .codrop-dropdown .dropdown li i {
   margin-right: 5px;
   color: inherit;
   vertical-align: middle;
 }
-/* line 418, ../styles/main.scss */
+/* line 419, ../styles/main.scss */
 .codrop-dropdown .dropdown li:hover a {
   color: grey;
 }
 
-/* line 425, ../styles/main.scss */
+/* line 426, ../styles/main.scss */
 #syntax {
   border-left: 5px solid #e74c3c;
 }
 
-/* line 429, ../styles/main.scss */
+/* line 430, ../styles/main.scss */
 #theme {
   border-left: 5px solid #3db1ff;
 }
 
-/* line 433, ../styles/main.scss */
+/* line 434, ../styles/main.scss */
 .codrop-dropdown.active:after {
   border-width: 0 6px 6px 6px;
 }
 
-/* line 437, ../styles/main.scss */
+/* line 438, ../styles/main.scss */
 .codrop-dropdown.active .dropdown {
   opacity: 1;
   pointer-events: auto;

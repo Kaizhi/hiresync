@@ -42,10 +42,6 @@ body.app
 				| Snippets
 
 			hr
-			button.pure-button.primary-button.need-auth.record Record
-			button.pure-button.secondary-button.need-auth.play Play
-
-			hr
 			ul.users#users
 			hr
 			div#syntax.codrop-dropdown JavaScript
@@ -53,6 +49,9 @@ body.app
 
 			div#theme.codrop-dropdown Monokai
 				ul.dropdown
+		.card
+			button.pure-button.primary-button.need-auth.record Record
+			button.pure-button.secondary-button.need-auth.play Play
 			
 
 	script(type='text/template', id='user-list-item-tpl')
