@@ -25,6 +25,7 @@ app.configure(function() {
     app.use(express.logger('dev'));
     app.use(express.bodyParser());
     app.use(express.methodOverride());
+    app.use(express.compress());
 
     app.use(express.cookieParser('sample secret'));
     mongoose.connect('mongodb://localhost/passport-accounts');
