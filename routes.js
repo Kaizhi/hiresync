@@ -31,9 +31,13 @@ module.exports = function(app) {
                         account: account
                     }
                 });
+            } else {
+                //auto login the newly created user and redirect to the app
+                passport.authenticate('local')(req, res, function () {
+                     res.redirect('/app');
+                })
             }
 
-            res.redirect('/');
         });
     });
 
