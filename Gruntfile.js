@@ -159,7 +159,8 @@ module.exports = function (grunt) {
                 httpImagesPath: '/images',
                 httpGeneratedImagesPath: '/images/generated',
                 httpFontsPath: '/styles/fonts',
-                relativeAssets: false
+                relativeAssets: false,
+                noLineComments: true,
             },
             dist: {},
             server: {
