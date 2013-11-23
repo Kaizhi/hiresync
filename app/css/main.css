@@ -1626,30 +1626,34 @@ footer a {
 .app .card .pure-button:nth-of-type(odd) {
   margin-right: 3.3%;
 }
-/* line 279, ../styles/main.scss */
+/* line 277, ../styles/main.scss */
+.app .card .pure-button.save-recording {
+  width: 100%;
+}
+/* line 282, ../styles/main.scss */
 .app .card hr {
   margin: 1em 0;
 }
-/* line 283, ../styles/main.scss */
+/* line 286, ../styles/main.scss */
 .app .card .users, .app .card .questions {
   margin: 0;
   padding: 0;
   list-style-type: none;
   color: #393939;
 }
-/* line 288, ../styles/main.scss */
+/* line 291, ../styles/main.scss */
 .app .card .users li, .app .card .questions li {
   border-left: 5px solid #e74c3c;
   margin-bottom: .7em;
   padding: 6px 0 6px 1em;
   background-color: white;
 }
-/* line 293, ../styles/main.scss */
+/* line 296, ../styles/main.scss */
 .app .card .users li icon, .app .card .questions li icon {
   margin-left: 2em;
   color: #e74c3c;
 }
-/* line 297, ../styles/main.scss */
+/* line 300, ../styles/main.scss */
 .app .card .users li .icon-remove, .app .card .questions li .icon-remove {
   float: right;
   color: #393939;
@@ -1657,12 +1661,12 @@ footer a {
   margin-right: 10px;
   font-size: 1.3em;
 }
-/* line 304, ../styles/main.scss */
+/* line 307, ../styles/main.scss */
 .app .card .users li:last-child, .app .card .questions li:last-child {
   margin-bottom: 0;
 }
 
-/* line 312, ../styles/main.scss */
+/* line 315, ../styles/main.scss */
 #modal {
   z-index: 10;
   top: 2%;
@@ -1674,23 +1678,23 @@ footer a {
   display: none;
   transition: all .3s ease;
 }
-/* line 322, ../styles/main.scss */
+/* line 325, ../styles/main.scss */
 #modal .new-question-form {
   float: right;
   width: 500px;
 }
-/* line 325, ../styles/main.scss */
+/* line 328, ../styles/main.scss */
 #modal .new-question-form textarea {
   width: 100%;
   min-height: 30em;
 }
-/* line 329, ../styles/main.scss */
+/* line 332, ../styles/main.scss */
 #modal .new-question-form .CodeMirror {
   border: 1px solid #cccccc;
   box-shadow: inset 0 1px 3px #dddddd;
   min-height: 30em;
 }
-/* line 335, ../styles/main.scss */
+/* line 338, ../styles/main.scss */
 #modal #questions-list {
   float: left;
   width: 230px;
@@ -1698,21 +1702,21 @@ footer a {
   height: 100%;
   overflow-y: scroll;
 }
-/* line 341, ../styles/main.scss */
+/* line 344, ../styles/main.scss */
 #modal #questions-list li {
   border-left: 5px solid #3db1ff;
   cursor: pointer;
 }
-/* line 345, ../styles/main.scss */
+/* line 348, ../styles/main.scss */
 #modal #questions-list li:hover {
   border-left: 5px solid #e74c3c;
 }
-/* line 348, ../styles/main.scss */
+/* line 351, ../styles/main.scss */
 #modal #questions-list li.new {
   border-left: 5px solid #e74c3c;
 }
 
-/* line 355, ../styles/main.scss */
+/* line 358, ../styles/main.scss */
 .codrop-dropdown {
   position: relative;
   /* Enable absolute positioning for children and pseudo elements */
@@ -1724,7 +1728,7 @@ footer a {
   cursor: pointer;
   outline: none;
 }
-/* line 364, ../styles/main.scss */
+/* line 367, ../styles/main.scss */
 .codrop-dropdown:after {
   content: "";
   width: 0;
@@ -1737,11 +1741,11 @@ footer a {
   border-style: solid;
   border-color: grey transparent;
 }
-/* line 376, ../styles/main.scss */
+/* line 379, ../styles/main.scss */
 .codrop-dropdown:last-child {
   margin-bottom: 0;
 }
-/* line 379, ../styles/main.scss */
+/* line 382, ../styles/main.scss */
 .codrop-dropdown .dropdown {
   /* Size & position */
   position: absolute;
@@ -1759,7 +1763,7 @@ footer a {
   margin: 0px;
   padding: 0px;
 }
-/* line 399, ../styles/main.scss */
+/* line 402, ../styles/main.scss */
 .codrop-dropdown .dropdown li a {
   display: block;
   text-decoration: none;
@@ -1768,41 +1772,41 @@ footer a {
   padding: 6px 0 6px 1em;
   transition: all 0.3s ease-out;
 }
-/* line 407, ../styles/main.scss */
+/* line 410, ../styles/main.scss */
 .codrop-dropdown .dropdown li:nth-child(1n) a {
   border-left-color: #00ACED;
 }
-/* line 410, ../styles/main.scss */
+/* line 413, ../styles/main.scss */
 .codrop-dropdown .dropdown li:nth-child(2n) a {
   border-left-color: #4183C4;
 }
-/* line 414, ../styles/main.scss */
+/* line 417, ../styles/main.scss */
 .codrop-dropdown .dropdown li i {
   margin-right: 5px;
   color: inherit;
   vertical-align: middle;
 }
-/* line 419, ../styles/main.scss */
+/* line 422, ../styles/main.scss */
 .codrop-dropdown .dropdown li:hover a {
   color: grey;
 }
 
-/* line 426, ../styles/main.scss */
+/* line 429, ../styles/main.scss */
 #syntax {
   border-left: 5px solid #e74c3c;
 }
 
-/* line 430, ../styles/main.scss */
+/* line 433, ../styles/main.scss */
 #theme {
   border-left: 5px solid #3db1ff;
 }
 
-/* line 434, ../styles/main.scss */
+/* line 437, ../styles/main.scss */
 .codrop-dropdown.active:after {
   border-width: 0 6px 6px 6px;
 }
 
-/* line 438, ../styles/main.scss */
+/* line 441, ../styles/main.scss */
 .codrop-dropdown.active .dropdown {
   opacity: 1;
   pointer-events: auto;

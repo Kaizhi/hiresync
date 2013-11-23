@@ -274,6 +274,9 @@ footer {
             &:nth-of-type(odd){
                 margin-right: 3.3%;
             }
+            &.save-recording{
+                width:100%;
+            }
     
         }
         hr{
