@@ -21,7 +21,8 @@ define(['jquery', 'backbone', 'underscore', 'app'], function ($, Backbone, _, Ap
             _.each(users, function(user, index){
                 var contenteditable = false;
                 if (App.socket.socket.sessionid === user.id){
-                    //if this is user name for this client, we change the name in the list to contenteditable
+                    //if this is user name for this client, we change the 
+                    //name in the list to contenteditable
                     contenteditable = true;
                 }
                 $fragment.append(that.template({
@@ -33,12 +34,14 @@ define(['jquery', 'backbone', 'underscore', 'app'], function ($, Backbone, _, Ap
             App.spinner.stop();
         },
 
+        //submit the name change to server
         onNameChanged: function(evt){
             App.socket.emit('name:change', evt.target.textContent);
         },
 
         onEnterKeyPressed: function(evt){
             if(evt.which === 13){
+                //cancel contenteditable and submit name change if enter is pressed
                 this.onNameChanged(evt);
             }
         }

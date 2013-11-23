@@ -15,7 +15,7 @@ define(['jquery', 'backbone', 'underscore', 'app', '../models/questionmodel', '.
             this.questions = new QuestionsCollection();
             this.viewModel = new Backbone.Model();
             this.$title = this.$el.find('input');
-            this.isShown = false;
+            this.bIsShown = false; 
 
         },
 
@@ -70,8 +70,8 @@ define(['jquery', 'backbone', 'underscore', 'app', '../models/questionmodel', '.
         show: function(){
             var that = this;
 
-            if (this.isShown === false){
-                this.isShown = true;
+            if (this.bIsShown === false){
+                this.bIsShown = true;
                 this.$el.show();
                 this.questions.fetch().done(function(){
                     that.render();
@@ -79,7 +79,7 @@ define(['jquery', 'backbone', 'underscore', 'app', '../models/questionmodel', '.
             } else {
                 this.$el.hide();;
                 this.editorInstance.toTextArea();
-                this.isShown = false;
+                this.bIsShown = false;
             }
 
         },

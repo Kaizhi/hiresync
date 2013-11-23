@@ -9,7 +9,7 @@ define(['jquery', 'backbone', 'underscore', 'app'], function ($, Backbone, _, Ap
 
         },
 
-        syntaxItems: [
+        syntaxItems: [ //list of languages
             'JavaScript',
             'CoffeeScript',
             'C',
@@ -25,7 +25,7 @@ define(['jquery', 'backbone', 'underscore', 'app'], function ($, Backbone, _, Ap
             'PHP'
         ],
 
-        themeItems: [
+        themeItems: [ //list of themes
             'Monokai',
             'Default'
         ],
@@ -79,6 +79,7 @@ define(['jquery', 'backbone', 'underscore', 'app'], function ($, Backbone, _, Ap
                     App.mainEditor.setOption('mode', 'text/x-csharp');
                     break;
                 default:
+                    //load the style mode using require
                     require(['/bower_components/CodeMirror/mode/' + name + '/' + name + '.js'], function(){
                         App.mainEditor.setOption('mode', name);
                     });

@@ -20,6 +20,7 @@ define(['jquery', 'backbone', 'underscore', 'app',
             this.render();          
 
             if (!window.user){
+                //populate the auth only feature buttons with a tooltip hint
                 $('.need-auth').addClass('hint--left').attr('data-hint', 'You must be logged in to use this feature');
             }
             this.recording = new RecordingModel();
