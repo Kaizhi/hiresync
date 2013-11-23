@@ -8,6 +8,57 @@ $textBlack: #393939;
 $footerBlack: #2F2F2F;
 $orange: #E74C3C;
 
+@mixin fadein($duration) {
+    -webkit-animation: fadein $duration; /* Safari and Chrome */
+       -moz-animation: fadein $duration; /* Firefox */
+        -ms-animation: fadein $duration; /* Internet Explorer */
+            animation: fadein $duration;
+}
+
+@keyframes fadein {
+    from { 
+        opacity: 0; 
+        transform: translate3d(0px, -20px, 0);
+    }
+    to   { 
+        opacity: 1; 
+        transform: translate3d(0px, 0px, 0);
+    }
+}
+
+@-moz-keyframes fadein {
+    from { 
+        opacity: 0; 
+        -moz-transform: translate3d(0px, -20px, 0);
+    }
+    to   { 
+        opacity: 1; 
+        -moz-transform: translate3d(0px, 0px, 0);
+    }
+}
+
+@-webkit-keyframes fadein {
+    from { 
+        opacity: 0; 
+        -webkit-transform: translate3d(0px, -20px, 0);
+    }
+    to   { 
+        opacity: 1; 
+        -webkit-transform: translate3d(0px, 0px, 0);
+    }
+}
+
+@-ms-keyframes fadein {
+    from { 
+        opacity: 0; 
+        -ms-transform: translate3d(0px, -20px, 0);
+    }
+    to   { 
+        opacity: 1; 
+        -ms-transform: translate3d(0px, 0px, 0);
+    }
+}​
+
 body {
     margin: 0 auto;
     line-height: 1.7em;
@@ -179,7 +230,7 @@ footer {
         text-align:center;
         text-transform:capitalize;
         letter-spacing: 3px;
-        //text-shadow: black 0.1em 0.1em 0.2em;
+        @include fadein(2s);
     }
     .splash-subhead {
         color: white;
@@ -188,9 +239,13 @@ footer {
         margin-bottom:3em;
         padding: 0 25%;
         text-align:center;
+        @include fadein(2s);
+
     }
     .primary-button {
         font-size: 150%;
+        @include fadein(2s);
+
     }
 }
 
