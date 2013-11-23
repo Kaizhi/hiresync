@@ -2,6 +2,7 @@ var passport = require('passport'),
     mongoose = require('mongoose'),
     Account = require('./models/account'),
     Questions = require('./models/questions'),
+    Recording = require('./models/recording'),
     helpers = require('./helpers');
 
 module.exports = function(app) {
@@ -113,6 +114,25 @@ module.exports = function(app) {
                 user: req.user.username
             });
             question.save(function(err) {
+                if (err) {
+                    return res.send(500);
+                }
+            });
+            return res.send(200);
+        }
+        res.send(401);
+    });
+
+    app.post('/api/recording', function(req, res){
+        if (req.user) {
+            var Recording = mongoose.model('Recording');
+            var recording = new Recording({
+                title: req.body.title,
+                events: req.body.events,
+                user: req.user.username,
+                startTime: req.body.startTime
+            });
+            recording.save(function(err) {
                 if (err) {
                     return res.send(500);
                 }

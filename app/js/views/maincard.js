@@ -59,12 +59,13 @@ define(['jquery', 'backbone', 'underscore', 'app',
                 var evt = {};
                 evt.contents = App.mainEditor.getValue();
                 evt.time = Math.round(performance.now());
-                this.recording.events.push(evt);
+                this.recording.get('events').push(evt);
             }
         },
 
+        //persist recording to server
         saveRecording: function(){
-            //persist model to server
+            this.recording.save(null, {});
         },
 
 

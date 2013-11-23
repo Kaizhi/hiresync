@@ -3,8 +3,8 @@ define(['jquery', 'backbone', 'underscore', 'app'], function ($, Backbone, _, Ap
         url: '/api/recording',
 
         initialize: function(options){
-       		this.startTime = window.performance.now();
-        	this.events = [];
+            this.set('startTime', window.performance.now());
+            this.set('events', []);
         },
 
         play: function(editorInstance){
@@ -18,15 +18,15 @@ define(['jquery', 'backbone', 'underscore', 'app'], function ($, Backbone, _, Ap
         doPlayback: function(i){
             var that = this;
 
-            if (i > this.events.length - 1){
+            if (i > this.get('events').length - 1){
                 return; 
             }
             if (i === 0){
-                var timer = this.events[i].time - this.startTime;
+                var timer = this.get('events')[i].time - this.startTime;
             } else {
-                var timer = this.events[i].time - this.events[i-1].time;
+                var timer = this.get('events')[i].time - this.get('events')[i-1].time;
             }
-            var data = this.events[i].contents;
+            var data = this.get('events')[i].contents;
 
             (function(data, timer){
                 setTimeout(function(){
