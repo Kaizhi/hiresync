@@ -11,7 +11,7 @@ define(['jquery', 'backbone', 'underscore', 'app',
         
         events: {
             'click .newTemplate': 'newQuestion',
-            'click .save-recording': 'saveRecording'
+            'click .save-recording': 'saveRecording',
         },
         _RECORDING_STARTED: false,
 
@@ -59,12 +59,10 @@ define(['jquery', 'backbone', 'underscore', 'app',
             this._RECORDING_STARTED = true;
         },
 
-        onEditorChanged: function(){
+        onEditorChanged: function(instance, changeObj){
             if (this._RECORDING_STARTED){
-                var evt = {};
-                evt.contents = App.mainEditor.getValue();
-                evt.time = Math.round(performance.now());
-                this.recording.get('events').push(evt);
+                changeObj.time = Math.round(performance.now());
+                this.recording.get('events').push(changeObj);
             }
         },
 
@@ -76,6 +74,8 @@ define(['jquery', 'backbone', 'underscore', 'app',
             this.recording.save(null, {});
         },
 
+        play: function(){
+        },
 
     })
 

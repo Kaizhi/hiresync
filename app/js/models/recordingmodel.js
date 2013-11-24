@@ -26,11 +26,12 @@ define(['jquery', 'backbone', 'underscore', 'app'], function ($, Backbone, _, Ap
             } else {
                 var timer = this.get('events')[i].time - this.get('events')[i-1].time;
             }
-            var data = this.get('events')[i].contents;
+            var data = this.get('events')[i];
 
             (function(data, timer){
                 setTimeout(function(){
-                    that.editorInstance.setValue(data);
+                    //apply the changeobj diffs using replaceRange
+                    that.editor.replaceRange(data.text.toString(), data.from, data.to);
                     that.doPlayback(i+1);
                 }, timer);
             })(data, timer);
