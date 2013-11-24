@@ -2,7 +2,7 @@ define(['jquery', 'backbone', 'underscore', 'app',
     './userlist', 
     './editoroptions',
     './questionscard',
-    '../models/recordingModel',], 
+    '../models/recordingmodel',], 
     function ($, Backbone, _, App, UserListView, EditorOptionsView, QuestionsCard, RecordingModel){    
     //parent view for the cards style sidebar options
     var mainCard = Backbone.View.extend({
@@ -27,7 +27,7 @@ define(['jquery', 'backbone', 'underscore', 'app',
             this.recording = new RecordingModel();
             this.startRecording();
             this.listenTo(App.mainEditor, 'change', _.bind(this.onEditorChanged, this));
-            
+
             $("#loader").on('click', function(){
                 that.questionsCard.show();
             });
@@ -70,6 +70,9 @@ define(['jquery', 'backbone', 'underscore', 'app',
 
         //persist recording to server
         saveRecording: function(){
+            if (!window.user){
+                return;
+            }
             this.recording.save(null, {});
         },
 
