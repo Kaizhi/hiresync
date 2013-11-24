@@ -15,6 +15,13 @@ $orange: #E74C3C;
             animation: fadein $duration;
 }
 
+@mixin transition($duration){
+    -webkit-transition: all $duration ease;
+    -moz-transition: all $duration ease;
+    -ms-transition: all $duration ease;
+    transition: all $duration ease;
+}
+
 @keyframes fadein {
     from { 
         opacity: 0; 
@@ -67,11 +74,16 @@ sup {
 #loader {
     width:100%;
     height:100%;
-    z-index:5000;
+    z-index:150;
     position:absolute;
     top:0%;
     left:0%;
-    pointer-events:none;
+    pointer-events: none;
+    @include transition(.5s);
+    &.overlay{
+        pointer-events: auto;
+        background-color:rgba(0,0,0,0.5);
+    }
 }
 
 button a{
@@ -360,8 +372,8 @@ footer {
     }
 }
 
-#modal{
-    z-index: 10;
+.modal{
+    z-index: 200;
     top: 2%;
     position: absolute;
     left: 50%;
@@ -370,17 +382,18 @@ footer {
     height:30em;
     display:none;
     transition: all .3s ease;
+    @include fadein(.5s);
     .new-question-form{
         float:right;
         width:500px;
         textarea{
             width:100%;
-            min-height:30em;
+            min-height:35em;
         }
         .CodeMirror{
             border: 1px solid rgb(204, 204, 204);
             box-shadow: inset 0 1px 3px rgb(221, 221, 221);
-            min-height:30em;
+            min-height:34.5em;
         }
     }
     #questions-list{

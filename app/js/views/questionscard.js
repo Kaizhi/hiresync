@@ -16,7 +16,6 @@ define(['jquery', 'backbone', 'underscore', 'app', '../models/questionmodel', '.
             this.viewModel = new Backbone.Model();
             this.$title = this.$el.find('input');
             this.bIsShown = false; 
-
         },
 
         render: function(){
@@ -73,11 +72,14 @@ define(['jquery', 'backbone', 'underscore', 'app', '../models/questionmodel', '.
             if (this.bIsShown === false){
                 this.bIsShown = true;
                 this.$el.show();
+                $("#loader").addClass('overlay');
                 this.questions.fetch().done(function(){
                     that.render();
                 });
             } else {
-                this.$el.hide();;
+                this.$el.hide();
+                $("#loader").removeClass('overlay');
+
                 this.editorInstance.toTextArea();
                 this.bIsShown = false;
             }

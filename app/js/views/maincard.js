@@ -16,6 +16,7 @@ define(['jquery', 'backbone', 'underscore', 'app',
         _RECORDING_STARTED: false,
 
         initialize: function(){
+            var that = this;
             this.$el.html(this.template);
             this.render();          
 
@@ -26,6 +27,10 @@ define(['jquery', 'backbone', 'underscore', 'app',
             this.recording = new RecordingModel();
             this.startRecording();
             this.listenTo(App.mainEditor, 'change', _.bind(this.onEditorChanged, this));
+            
+            $("#loader").on('click', function(){
+                that.questionsCard.show();
+            });
         },
 
         render: function(){
