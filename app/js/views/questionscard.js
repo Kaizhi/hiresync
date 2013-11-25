@@ -1,7 +1,7 @@
 define(['jquery', 'backbone', 'underscore', 'app', '../models/questionmodel', '../collections/questionscollection'], function ($, Backbone, _, App, QuestionModel, QuestionsCollection){    
     //parent view for the cards style sidebar options
     var questionsCard = Backbone.View.extend({
-        el: $('.modal'),        
+        el: $('.snippets'),        
         questionItemTemplate: _.template($("#user-list-item-tpl").html()),
         events: {
             'click .save': 'save',

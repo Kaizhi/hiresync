@@ -115,12 +115,12 @@ module.exports = function(app) {
             });
             question.save(function(err) {
                 if (err) {
-                    return res.send(500);
+                    return res.json(500);
                 }
             });
-            return res.send(200);
+            return res.json(200);
         }
-        res.send(401);
+        res.json(401);
     });
 
     app.post('/api/recording', function(req, res){
@@ -134,12 +134,12 @@ module.exports = function(app) {
             });
             recording.save(function(err) {
                 if (err) {
-                    return res.send(500);
+                    return res.json(500);
                 }
             });
-            return res.send(200);
+            return res.json(200);
         }
-        res.send(401);
+        res.json(401);
     });
 
 };

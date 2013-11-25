@@ -2,6 +2,10 @@ define(['jquery', 'backbone', 'underscore', 'app'], function ($, Backbone, _, Ap
     var recordingModel = Backbone.Model.extend({
         url: '/api/recording',
 
+        defaults: {
+          "name":  "Untitled Recording",
+        },
+
         initialize: function(options){
             this.set('startTime', window.performance.now());
             this.set('events', []);

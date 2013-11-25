@@ -22,7 +22,7 @@ head
 body.app
 	div#loader
 	.cards
-	.modal.card
+	.modal.card.snippets
 		ul.questions#questions-list
 
 		form.pure-form.new-question-form(method="post")
@@ -31,6 +31,14 @@ body.app
 				textarea
 			button.pure-button.pure-input-1.pure-button.secondary-button.load(type='cancel') Load Question
 			button.pure-button.pure-input-1.pure-button.primary-button.save(type='submit') Save/Update
+
+	.modal.card.recording-modal
+		form.pure-form.new-question-form(method="post")
+			fieldset.pure-group
+				legend	Please enter a name for this recording
+				input.pure-input-1.recording-name(type='text', placeholder='Name', name='name')
+			button.pure-button.pure-input-1.pure-button.secondary-button.recording-cancel(type='cancel') Cancel
+			button.pure-button.pure-input-1.pure-button.primary-button.recording-save(type='submit') Save Recording
 
 	textarea#code
 
@@ -51,6 +59,7 @@ body.app
 
 		.card
 			button.pure-button.primary-button.need-auth.save-recording Save Recording 
+
 			
 
 	script(type='text/template', id='user-list-item-tpl')

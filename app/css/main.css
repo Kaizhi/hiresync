@@ -1480,9 +1480,6 @@ footer a {
   top: 2%;
   position: absolute;
   left: 50%;
-  margin-left: -375px;
-  width: 750px;
-  height: 30em;
   display: none;
   transition: all .3s ease;
   -webkit-animation: fadein 0.5s;
@@ -1493,35 +1490,45 @@ footer a {
   /* Internet Explorer */
   animation: fadein 0.5s;
 }
-.modal .new-question-form {
+.modal.snippets {
+  /*Styling for snippets modal*/
+  margin-left: -375px;
+  width: 750px;
+}
+.modal.snippets .new-question-form {
   float: right;
   width: 500px;
 }
-.modal .new-question-form textarea {
+.modal.snippets .new-question-form textarea {
   width: 100%;
   min-height: 35em;
 }
-.modal .new-question-form .CodeMirror {
+.modal.snippets .new-question-form .CodeMirror {
   border: 1px solid #cccccc;
   box-shadow: inset 0 1px 3px #dddddd;
   min-height: 34.5em;
 }
-.modal #questions-list {
+.modal.snippets #questions-list {
   float: left;
   width: 230px;
   margin-top: 5px;
   height: 100%;
   overflow-y: scroll;
 }
-.modal #questions-list li {
+.modal.snippets #questions-list li {
   border-left: 5px solid #3db1ff;
   cursor: pointer;
 }
-.modal #questions-list li:hover {
+.modal.snippets #questions-list li:hover {
   border-left: 5px solid #e74c3c;
 }
-.modal #questions-list li.new {
+.modal.snippets #questions-list li.new {
   border-left: 5px solid #e74c3c;
+}
+.modal.recording-modal {
+  width: 500px;
+  margin-left: -250px;
+  top: 35%;
 }
 
 .codrop-dropdown {
