@@ -3,7 +3,7 @@
 $deepblue: #2C3E50; 
 $midblue: #2980B9;
 $lightblue: #3DB1FF;
-$grey: #ECF0F1;
+$grey: #F5F5F5;
 $textBlack: #393939;
 $footerBlack: #2F2F2F;
 $orange: #E74C3C;
@@ -256,6 +256,16 @@ footer {
 
 .pure-menu .pure-menu-heading{
     font-size: 1.4em;
+    &:before{
+        background-image: url("../images/logo.png");
+        position: absolute;
+        background-size: cover;
+        width: 50px;
+        height: 50px;
+        content: "";
+        left: -40px;
+        top: -5px;
+    }
 }
 
 .pure-menu ul{
@@ -265,9 +275,10 @@ footer {
 }
 
 .pure-menu.pure-menu-horizontal > .pure-menu-heading{
-    margin-left:14%;
+    margin-left:17%;
     float:left;
     text-transform:none;
+    position:relative;
 }
 
 .pure-form .pure-group input{

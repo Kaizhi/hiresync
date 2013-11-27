@@ -1168,7 +1168,7 @@ body {
   background-color: transparent;
   background-attachment: fixed;
   background-size: auto, cover;
-  background-color: #ecf0f1;
+  background-color: whitesmoke;
 }
 
 sup {
@@ -1253,12 +1253,12 @@ footer {
 }
 footer p {
   text-align: center;
-  color: #ecf0f1;
+  color: whitesmoke;
   line-height: 6em;
   margin: 0;
 }
 footer a {
-  color: #ecf0f1;
+  color: whitesmoke;
 }
 
 .content {
@@ -1283,7 +1283,7 @@ footer a {
 }
 .section.pricing .callout-box {
   height: 480px;
-  background-color: #ecf0f1;
+  background-color: whitesmoke;
   margin: 2em;
 }
 
@@ -1368,6 +1368,16 @@ footer a {
 .pure-menu .pure-menu-heading {
   font-size: 1.4em;
 }
+.pure-menu .pure-menu-heading:before {
+  background-image: url("../images/logo.png");
+  position: absolute;
+  background-size: cover;
+  width: 50px;
+  height: 50px;
+  content: "";
+  left: -40px;
+  top: -5px;
+}
 
 .pure-menu ul {
   float: right;
@@ -1376,9 +1386,10 @@ footer a {
 }
 
 .pure-menu.pure-menu-horizontal > .pure-menu-heading {
-  margin-left: 14%;
+  margin-left: 17%;
   float: left;
   text-transform: none;
+  position: relative;
 }
 
 .pure-form .pure-group input {
@@ -1411,7 +1422,7 @@ footer a {
   background-color: #FFF;
   border-bottom: 1px solid #B7B7B7;
   padding: 1em;
-  background-color: #ecf0f1;
+  background-color: whitesmoke;
   border-radius: 3px;
   margin-bottom: .4em;
 }
