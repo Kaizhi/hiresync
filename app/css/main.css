@@ -1393,7 +1393,10 @@ footer a {
 }
 
 .pure-form .pure-group input {
-  border-radius: 2px 2px 0 0;
+  padding: 11px;
+}
+.pure-form .pure-group input:first-child, .pure-form .pure-group input:last-child {
+  border-radius: 0;
 }
 
 .app {

@@ -282,7 +282,10 @@ footer {
 }
 
 .pure-form .pure-group input{
-    border-radius:2px 2px 0 0;
+    padding: 11px;
+    &:first-child, &:last-child{
+        border-radius:0;
+    }
 }
 
 
