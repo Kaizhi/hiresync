@@ -98,6 +98,8 @@ define(['jquery', 'backbone', 'underscore', 'app',
             if (nameValue.length > 0){
                 this.recording.set('name', nameValue);
             }
+
+            this.recording.set('language', App.mainEditor.getOption('mode'));
             //persist model to server
             this.recording.save(null, {
                 success: function (model, response) {

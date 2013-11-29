@@ -130,7 +130,8 @@ module.exports = function(app) {
                 title: req.body.title,
                 events: req.body.events,
                 user: req.user.username,
-                startTime: req.body.startTime
+                startTime: req.body.startTime,
+                language: req.body.language
             });
             recording.save(function(err) {
                 if (err) {

@@ -5,7 +5,8 @@ var Recording = new Schema({
     title: String,
     user: String,
     events: Array,
-    startTime: Number
+    startTime: Number,
+    language: String
 });
 
 module.exports = mongoose.model('Recording', Recording);

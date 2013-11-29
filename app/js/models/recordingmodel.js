@@ -9,6 +9,7 @@ define(['jquery', 'backbone', 'underscore', 'app'], function ($, Backbone, _, Ap
         initialize: function(options){
             this.set('startTime', window.performance.now());
             this.set('events', []);
+            this.set('language', 'JavaScript'); //default language to js
         },
 
         play: function(editorInstance){
