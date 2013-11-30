@@ -28,6 +28,8 @@ body.app
 		form.pure-form.new-question-form(method="post")
 			fieldset.pure-group
 				input.pure-input-1(type='text', placeholder='Title', name="title")
+				div.syntax.codrop-dropdown JavaScript
+					ul.dropdown
 				textarea
 			button.pure-button.pure-input-1.pure-button.secondary-button.load(type='cancel') Load Question
 			button.pure-button.pure-input-1.pure-button.primary-button.save(type='submit') Save/Update
@@ -49,10 +51,10 @@ body.app
 			button.pure-button.secondary-button.newTemplate.need-auth 
 				| Snippets
 			hr
-			div#syntax.codrop-dropdown JavaScript
+			div.syntax.codrop-dropdown JavaScript
 				ul.dropdown
 
-			div#theme.codrop-dropdown Monokai
+			div.theme.codrop-dropdown Monokai
 				ul.dropdown
 			hr
 			ul.users#users

@@ -2,14 +2,35 @@ define(['jquery', 'backbone', 'underscore', 'app', '../models/questionmodel', '.
     //parent view for the cards style sidebar options
     var questionsCard = Backbone.View.extend({
         el: $('.snippets'),        
+
         questionItemTemplate: _.template($("#user-list-item-tpl").html()),
+        dropdownItemTemplate: _.template($("#editor-dropdown-list-item-tpl").html()),
+
         events: {
             'click .save': 'save',
             'click .load': 'load',
             'click .cancel' : 'cancel',
             'click .questions li:not(.new)': 'showSelectedQuestion',
-            'click .questions li.new': 'prepareNewQuestion'
+            'click .questions li.new': 'prepareNewQuestion',
+            'click .codrop-dropdown': 'onDropdownClicked',
+            'click .syntax.codrop-dropdown li': 'selectMode',
         },
+
+        syntaxItems: [ //list of languages
+            'JavaScript',
+            'CoffeeScript',
+            'C',
+            'C++',
+            'C#',
+            'Java',
+            'Python',
+            'Ruby',
+            'Go',
+            'Haskell',
+            'Scala',
+            'Clojure',
+            'PHP'
+        ],
 
         initialize: function(){
             this.questions = new QuestionsCollection();
@@ -44,6 +65,59 @@ define(['jquery', 'backbone', 'underscore', 'app', '../models/questionmodel', '.
                 value: '//Find the sum of all the multiples of 3 or 5 below 1000.'
             });
             
+            this.renderModeOptions();
+        },
+
+        renderModeOptions: function(){
+            var that = this,
+                $fragment = $(document.createDocumentFragment());
+
+            _.each(this.syntaxItems, function(item, index){
+                $fragment.append(that.dropdownItemTemplate({
+                    item: item,
+                    itemPath: item.toLowerCase()
+                }));
+            });  
+            this.$el.find('.syntax ul').append($fragment);
+        },
+
+        onDropdownClicked: function(evt){
+            $('.codrop-dropdown').not(evt.target).removeClass('active');
+            $(evt.target).toggleClass('active');
+            evt.stopPropagation();
+        },
+
+        selectMode: function(evt){
+            evt.preventDefault();
+            var name = $(evt.target).data('path'),
+                upperName = $(evt.target).text(),
+                that = this;
+            //special handling for clike languages
+            switch (name) {
+                case "java":
+                    App.mainEditor.setOption('mode', 'text/x-java');
+                    break;
+                case "c":
+                    App.mainEditor.setOption('mode', 'text/x-csrc');
+                    break;
+                case "c++":
+                    App.mainEditor.setOption('mode', 'text/x-c++src');
+                    break;
+                case "c#":
+                    App.mainEditor.setOption('mode', 'text/x-csharp');
+                    break;
+                default:
+                    //load the style mode using require
+                    require(['/bower_components/CodeMirror/mode/' + name + '/' + name + '.js'], function(){
+                        that.editorInstance.setOption('mode', name);
+                    });
+                    break;
+            }
+            this.updateModeName(upperName);
+        },
+
+        updateModeName: function(upperName){
+            this.$el.find(".syntax")[0].firstChild.nodeValue = upperName;
         },
 
         save: function(evt){

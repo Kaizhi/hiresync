@@ -4,8 +4,8 @@ define(['jquery', 'backbone', 'underscore', 'app'], function ($, Backbone, _, Ap
         dropdownItemTemplate: _.template($("#editor-dropdown-list-item-tpl").html()),
         events: {
             'click .codrop-dropdown': 'onDropdownClicked',
-            'click #syntax.codrop-dropdown li': 'selectMode',
-            'click #theme.codrop-dropdown li': 'selectTheme'
+            'click .syntax.codrop-dropdown li': 'selectMode',
+            'click .theme.codrop-dropdown li': 'selectTheme'
 
         },
 
@@ -36,8 +36,8 @@ define(['jquery', 'backbone', 'underscore', 'app'], function ($, Backbone, _, Ap
                 $('.codrop-dropdown').removeClass('active');
             });
 
-            this.render(this.syntaxItems, $("#syntax"));
-            this.render(this.themeItems, $("#theme"));
+            this.render(this.syntaxItems, this.$el.find(".syntax"));
+            this.render(this.themeItems, this.$el.find(".theme"));
             this.delegateEvents();
         },
 
@@ -89,7 +89,7 @@ define(['jquery', 'backbone', 'underscore', 'app'], function ($, Backbone, _, Ap
         },
 
         updateModeName: function(upperName){
-            $("#syntax")[0].firstChild.nodeValue = upperName;
+            this.$el.find(".syntax")[0].firstChild.nodeValue = upperName;
         },
 
         selectTheme: function(evt){
@@ -97,7 +97,7 @@ define(['jquery', 'backbone', 'underscore', 'app'], function ($, Backbone, _, Ap
             var name = $(evt.target).data('path'),
                 upperName = $(evt.target).text();
             App.mainEditor.setOption('theme', name);
-            $("#theme")[0].firstChild.nodeValue = upperName;
+            this.$el.find(".theme")[0].firstChild.nodeValue = upperName;
 
         }
     })
