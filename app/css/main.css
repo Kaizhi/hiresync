@@ -1535,7 +1535,7 @@ footer a {
   float: left;
   width: 230px;
   margin-top: 5px;
-  height: 100%;
+  height: 35em;
   overflow-y: scroll;
 }
 .modal.snippets #questions-list li {

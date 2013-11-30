@@ -95,16 +95,16 @@ define(['jquery', 'backbone', 'underscore', 'app', '../models/questionmodel', '.
             //special handling for clike languages
             switch (name) {
                 case "java":
-                    App.mainEditor.setOption('mode', 'text/x-java');
+                    that.editorInstance.setOption('mode', 'text/x-java');
                     break;
                 case "c":
-                    App.mainEditor.setOption('mode', 'text/x-csrc');
+                    that.editorInstance.setOption('mode', 'text/x-csrc');
                     break;
                 case "c++":
-                    App.mainEditor.setOption('mode', 'text/x-c++src');
+                    that.editorInstance.setOption('mode', 'text/x-c++src');
                     break;
                 case "c#":
-                    App.mainEditor.setOption('mode', 'text/x-csharp');
+                    that.editorInstance.setOption('mode', 'text/x-csharp');
                     break;
                 default:
                     //load the style mode using require
@@ -124,7 +124,8 @@ define(['jquery', 'backbone', 'underscore', 'app', '../models/questionmodel', '.
             evt.preventDefault();
             var question = new QuestionModel({
                 title: this.$el.find('input').val(),
-                content: this.editorInstance.getValue()
+                content: this.editorInstance.getValue(),
+                language: this.editorInstance.getOption('mode')
             });
             var that = this;
             question.save(null, {
@@ -165,7 +166,7 @@ define(['jquery', 'backbone', 'underscore', 'app', '../models/questionmodel', '.
             this.viewModel.set('selected', index);
             this.$title.val( this.questions.at(index - 1).get('title') );
             this.editorInstance.setValue( this.questions.at(index - 1).get('content') );
-
+            
         },
 
         prepareNewQuestion: function(evt){

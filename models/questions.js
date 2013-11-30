@@ -4,7 +4,8 @@ var mongoose = require('mongoose'),
 var Questions = new Schema({
     title: String,
     user: String,
-    content: String
+    content: String,
+    language: String
 });
 
 module.exports = mongoose.model('Questions', Questions);

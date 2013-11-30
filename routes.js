@@ -94,7 +94,7 @@ module.exports = function(app) {
             var Questions = mongoose.model('Questions');
             Questions.find({
                 'user': req.user.username
-            }, 'title content _id', function(err, doc) {
+            }, 'title content language _id', function(err, doc) {
                 if (err) {
                     return res.send(500);
                 }
@@ -111,7 +111,9 @@ module.exports = function(app) {
             var question = new Questions({
                 title: req.body.title,
                 content: req.body.content,
-                user: req.user.username
+                user: req.user.username,
+                language: req.body.language
+
             });
             question.save(function(err) {
                 if (err) {

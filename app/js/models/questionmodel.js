@@ -5,6 +5,7 @@ define(['jquery', 'backbone', 'underscore', 'app'], function ($, Backbone, _, Ap
         initialize: function(options){
             this.title = options.title;
             this.content = options.content;
+            this.language = options.language;
         },
 
 
