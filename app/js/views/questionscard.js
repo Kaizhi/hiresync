@@ -41,6 +41,8 @@ define(['jquery', 'backbone', 'underscore', 'app', '../models/questionmodel', '.
 
         render: function(){
             this.$el.find('#questions-list').empty();
+            this.$el.find('.syntax ul').empty();
+            
             var that = this,
                 $fragment = $(document.createDocumentFragment());
 
