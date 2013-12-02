@@ -90,21 +90,27 @@ define(['jquery', 'backbone', 'underscore', 'app', '../models/questionmodel', '.
         selectMode: function(evt){
             evt.preventDefault();
             var name = $(evt.target).data('path'),
-                upperName = $(evt.target).text(),
-                that = this;
+                upperName = $(evt.target).text();
+
+            this.selectModeByName(name);
+            this.updateModeName(upperName);
+        },
+
+        selectModeByName: function(name){
+            var that = this;
             //special handling for clike languages
             switch (name) {
                 case "java":
-                    that.editorInstance.setOption('mode', 'text/x-java');
+                    this.editorInstance.setOption('mode', 'text/x-java');
                     break;
                 case "c":
-                    that.editorInstance.setOption('mode', 'text/x-csrc');
+                    this.editorInstance.setOption('mode', 'text/x-csrc');
                     break;
                 case "c++":
-                    that.editorInstance.setOption('mode', 'text/x-c++src');
+                    this.editorInstance.setOption('mode', 'text/x-c++src');
                     break;
                 case "c#":
-                    that.editorInstance.setOption('mode', 'text/x-csharp');
+                    this.editorInstance.setOption('mode', 'text/x-csharp');
                     break;
                 default:
                     //load the style mode using require
@@ -113,7 +119,6 @@ define(['jquery', 'backbone', 'underscore', 'app', '../models/questionmodel', '.
                     });
                     break;
             }
-            this.updateModeName(upperName);
         },
 
         updateModeName: function(upperName){
@@ -164,9 +169,16 @@ define(['jquery', 'backbone', 'underscore', 'app', '../models/questionmodel', '.
         showSelectedQuestion: function(evt){
             var index = $(evt.target).index();
             this.viewModel.set('selected', index);
-            this.$title.val( this.questions.at(index - 1).get('title') );
-            this.editorInstance.setValue( this.questions.at(index - 1).get('content') );
-            
+            var selectedModel = this.questions.at(index - 1);
+
+            this.$title.val( selectedModel.get('title') );
+            this.editorInstance.setValue( selectedModel.get('content') );
+
+            //update the question editor instance with the saved language
+            if (selectedModel.has('language')){
+                this.selectModeByName( selectedModel.get('language') );
+                this.updateModeName( selectedModel.get('language') );
+            }
         },
 
         prepareNewQuestion: function(evt){
