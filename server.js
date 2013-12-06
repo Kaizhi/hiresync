@@ -60,41 +60,10 @@ passport.use(new LocalStrategy(Account.authenticate()));
 passport.serializeUser(Account.serializeUser());
 passport.deserializeUser(Account.deserializeUser());
 
-// Setup routes
-require('./routes')(app);
-
 var server = http.createServer(app).listen(app.get('port'), function() {
     console.log('Express server listening on port ' + app.get('port'));
 });
 
-//******************* SIO ********************************//
-var getRoomUsers = function(room) {
-    return _.map(room, function(obj) {
-        return _.pick(obj, 'userName', 'id');
-    }); //returns an array of user objects containing userName and id
-};
-
-// Set up socket.io
-var io = require('socket.io').listen(server);
-io.sockets.on('connection', function(socket) {
-
-    socket.on('room', function(room) {
-        socket.join(room); //join socket room based on client's roomHash
-        if (typeof socket.userName === 'undefined') {
-            socket.userName = "Guest" + io.sockets.clients(room).length; //assign a Guest name if client has no userName
-        }
-        socket.userRoom = room;
-        io.sockets. in (room).emit('users:update', getRoomUsers(io.sockets.clients(room))); //update the room's clients with the updated userlist
-
-    });
-
-    socket.on('name:change', function(data) {
-        socket.userName = data;
-        io.sockets. in (socket.userRoom).emit('users:update', getRoomUsers(io.sockets.clients(socket.userRoom)));
-    })
-
-    socket.on('disconnect', function() {
-        socket.leave(socket.userRoom);
-        io.sockets. in (socket.userRoom).emit('users:update', getRoomUsers(io.sockets.clients(socket.userRoom)));
-    })
-});
+// Setup routes and sio handling
+require('./routes')(app);
+require('./socket')(server);
