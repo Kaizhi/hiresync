@@ -1266,6 +1266,13 @@ footer a {
   margin: 0 auto;
 }
 
+.section.feature {
+  padding-top: 8em;
+  padding-bottom: 8em;
+}
+.section:nth-child(odd) {
+  background-color: white;
+}
 .section h1 {
   font-size: 2em;
   font-weight: 200;
@@ -1273,8 +1280,15 @@ footer a {
   margin-top: 1.5em;
   text-align: center;
   line-height: 2.5em;
-  border-bottom: 1px solid grey;
   padding-bottom: 1.5em;
+}
+.section .image-box {
+  float: right;
+  padding: 5em;
+}
+.section .image-box .fa {
+  font-size: 8em;
+  color: #393939;
 }
 
 .section.pricing {

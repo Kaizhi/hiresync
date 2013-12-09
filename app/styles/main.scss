@@ -162,6 +162,14 @@ footer {
 }
 
 .section {
+    &.feature{
+        padding-top: 8em;
+        padding-bottom: 8em;
+    }
+
+    &:nth-child(odd){
+        background-color: white;
+    }
     h1{
         font-size:2em;
         font-weight: 200;
@@ -169,8 +177,16 @@ footer {
         margin-top:1.5em;
         text-align:center;
         line-height:2.5em;
-        border-bottom:1px solid grey;
         padding-bottom:1.5em;
+    }
+
+    .image-box{
+        float:right;
+        padding: 5em;
+        .fa {
+            font-size: 8em;
+            color: $textBlack;
+        }
     }
 }
 
