@@ -1547,6 +1547,7 @@ footer a {
   box-shadow: inset 0 1px 3px #dddddd;
   min-height: 34.5em;
   clear: both;
+  max-width: 500px;
 }
 .modal.snippets #questions-list {
   float: left;

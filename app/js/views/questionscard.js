@@ -64,9 +64,9 @@ define(['jquery', 'backbone', 'underscore', 'app', '../models/questionmodel', '.
             this.editorInstance = CodeMirror.fromTextArea(this.$el.find('textarea')[0], {
                 mode:  'javascript',
                 lineNumbers:true,
+                lineWrapping: true,
                 value: '//Find the sum of all the multiples of 3 or 5 below 1000.'
-            });
-            
+            });            
             this.renderModeOptions();
         },
 
