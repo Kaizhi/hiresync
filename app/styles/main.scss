@@ -159,17 +159,19 @@ footer {
 .content {
     padding: 0 15%;
     margin: 0 auto;
+    &:nth-child(odd){
+        background-color: white;
+    }
 }
 
 .section {
     &.feature{
-        padding-top: 8em;
-        padding-bottom: 8em;
+        max-width: 800px;
+        margin:0 auto;
+        padding: 8em 0;
     }
 
-    &:nth-child(odd){
-        background-color: white;
-    }
+
     h1{
         font-size:2em;
         font-weight: 200;
@@ -181,23 +183,24 @@ footer {
     }
 
     .image-box{
-        float:right;
-        padding: 5em;
-        .fa {
-            font-size: 8em;
-            color: $textBlack;
+        width: 350px;
+        height: 350px;
+        background-size: cover;
+        border-radius: 200px;
+        float: right;
+        border: 1px solid $orange;
+        &.teams{
+            background-image: url("../images/teams.png");
         }
-    }
-}
-
-.section.pricing {
-    padding-top:3em;
-    padding-bottom:3em;
-
-    .callout-box{
-        height:480px;
-        background-color:$grey;
-        margin:2em;
+        &.collaboration{
+            background-image: url("../images/collaboration.png");
+        }
+        &.language-support{
+            background-image: url("../images/languages.png");
+        }
+        &.snippets{
+            background-image: url("../images/snippets.png");
+        }
     }
 }
 

@@ -1265,13 +1265,14 @@ footer a {
   padding: 0 15%;
   margin: 0 auto;
 }
+.content:nth-child(odd) {
+  background-color: white;
+}
 
 .section.feature {
-  padding-top: 8em;
-  padding-bottom: 8em;
-}
-.section:nth-child(odd) {
-  background-color: white;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 8em 0;
 }
 .section h1 {
   font-size: 2em;
@@ -1283,22 +1284,24 @@ footer a {
   padding-bottom: 1.5em;
 }
 .section .image-box {
+  width: 350px;
+  height: 350px;
+  background-size: cover;
+  border-radius: 200px;
   float: right;
-  padding: 5em;
+  border: 1px solid #e74c3c;
 }
-.section .image-box .fa {
-  font-size: 8em;
-  color: #393939;
+.section .image-box.teams {
+  background-image: url("../images/teams.png");
 }
-
-.section.pricing {
-  padding-top: 3em;
-  padding-bottom: 3em;
+.section .image-box.collaboration {
+  background-image: url("../images/collaboration.png");
 }
-.section.pricing .callout-box {
-  height: 480px;
-  background-color: whitesmoke;
-  margin: 2em;
+.section .image-box.language-support {
+  background-image: url("../images/languages.png");
+}
+.section .image-box.snippets {
+  background-image: url("../images/snippets.png");
 }
 
 .container {
