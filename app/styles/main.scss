@@ -161,6 +161,15 @@ footer {
     margin: 0 auto;
     &:nth-child(odd){
         background-color: white;
+
+        .image-box{
+            float: right;
+        }
+    }
+    &:nth-child(even){
+        .image-box{
+            float: left;
+        }
     }
 }
 
@@ -187,8 +196,8 @@ footer {
         height: 350px;
         background-size: cover;
         border-radius: 200px;
-        float: right;
         border: 1px solid $orange;
+
         &.teams{
             background-image: url("../images/teams.png");
         }

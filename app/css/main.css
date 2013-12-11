@@ -1268,6 +1268,12 @@ footer a {
 .content:nth-child(odd) {
   background-color: white;
 }
+.content:nth-child(odd) .image-box {
+  float: right;
+}
+.content:nth-child(even) .image-box {
+  float: left;
+}
 
 .section.feature {
   max-width: 800px;
@@ -1288,7 +1294,6 @@ footer a {
   height: 350px;
   background-size: cover;
   border-radius: 200px;
-  float: right;
   border: 1px solid #e74c3c;
 }
 .section .image-box.teams {
