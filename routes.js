@@ -124,6 +124,24 @@ module.exports = function(app) {
         }
         res.json(401);
     });
+    
+    /* remove an existing question by id*/
+    app.del('/api/questions/:id', function(req, res) {
+        if (req.user) {
+            var Questions = mongoose.model('Questions');
+            Questions.find({
+                'id': req.params.id
+            }, 'title', function(err, doc) {
+                if (err) {
+                    return res.send(500);
+                }
+                doc.remove();
+                return res.json(200);
+            })
+        } else {
+            return res.send(401);
+        }
+    });
 
     app.post('/api/recording', function(req, res){
         if (req.user) {
